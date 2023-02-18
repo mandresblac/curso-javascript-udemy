@@ -13,7 +13,7 @@ busqueda.addEventListener("keyup", () => {
   console.log("Soltaste la tecla");
 });
 
-// blur - cuando sales del input - ideal para validación de formularios
+// blur - cuando sales de un input o campo en un formulario - ideal para validación de formularios
 busqueda.addEventListener("blur", () => {
   console.log("Estas afuera");
 });
