@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       resetFormulario();
 
-      //Crear una alerta
+      //Creamos mensaje de alerta exitosa
       const alertaExito = document.createElement("p");
       alertaExito.classList.add(
         "bg-green-500",
@@ -54,9 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
       ); // Clases de Tailwind CSS
       alertaExito.textContent = "MENSAJE ENVIADO CORRECTAMENTE";
 
-      //Agregar al DOM
+      //Agregamos la alerta de éxito al DOM
       formulario.appendChild(alertaExito);
 
+      //Eliminamos la alerta de éxito
       setTimeout(() => {
         alertaExito.remove();
       }, 3000);
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Muestra una alerta si el usuario comete un error
   function mostrarAlerta(mensaje, referencia) {
+    //Comprueba si ya existe una alerta
     limpiarAlerta(referencia);
 
     //Generamos alerta en HTML
