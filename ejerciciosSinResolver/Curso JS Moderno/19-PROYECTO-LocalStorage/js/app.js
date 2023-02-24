@@ -1,7 +1,7 @@
 // --------------------- VARIABLES -----------------------------------
 const formulario = document.querySelector("#formulario");
 const listaTweets = document.querySelector("#lista-tweets");
-let tweets = []; //Arreglo que almacena los tweets
+let tweets = []; //Arreglo vació que almacena los tweets
 
 // ---------------------- EVENT LISTENERS -----------------------------
 eventListener();
@@ -12,6 +12,7 @@ function eventListener() {
 
   // Cuando el documento esta listo
   document.addEventListener("DOMContentLoaded", () => {
+    //Traemos los tweets que están en local storage con formato .JSON y los convertimos a un objeto javascript con JSON.parse() si no hay tweets se asigna como una array vació "[]"
     tweets = JSON.parse(localStorage.getItem("tweets")) || [];
     console.log(tweets);
 
@@ -24,7 +25,7 @@ function agregarTweet(e) {
   e.preventDefault(); // Prevenimos la acción por defecto
 
   // TextArea donde el usuario escribe
-  const tweet = document.querySelector("#tweet").value;
+  const tweet = document.querySelector("#tweet").value; //Accedemos al valor
 
   // Validación de TextArea
   if (tweet === "") {
@@ -32,18 +33,19 @@ function agregarTweet(e) {
     return; //return evita que se ejecuten mas lineas de código, es decir sale de la función agregarTweet()
   }
 
+  //Generamos un identificador único de tweets
   const tweetObj = {
     id: Date.now(),
     tweet, // tweet: tweet
   };
 
   // Agregamos contenido al arreglo de tweets
-  tweets = [...tweets, tweetObj]; //tweet es lo que el usuario esta escribiendo
+  tweets = [...tweets, tweetObj]; //tweetObj es lo que el usuario esta escribiendo
 
-  //Después de agregar contenido al arreglo generamos o creamos código HTML
+  //Después de agregar contenido al arreglo "tweets" generamos o creamos código HTML
   crearHtml();
 
-  //Reiniciamos formulario
+  //Reiniciamos el formulario
   formulario.reset();
 
   //Establecemos el foco en el elemento textArea con id "tweet"
@@ -53,15 +55,15 @@ function agregarTweet(e) {
 //Mostrar mensaje de error
 function mostrarError(error) {
   //Generamos código HML
-  const mensajeError = document.createElement("p");
+  const mensajeError = document.createElement("p"); //Creamos un elemento "p" de HTML
   mensajeError.textContent = error; //Muestra como mensaje el parámetro error que le pasamos en la función agregarTweet()
   mensajeError.classList.add("error"); //Agregamos estilos CSS del archivo custom.css, clase .error
 
   //Definimos ubicación del mensaje de error en el Documento HTML
   const contenido = document.querySelector("#contenido"); //div con "id" contenido
-  contenido.appendChild(mensajeError);
+  contenido.appendChild(mensajeError); //Agregamos mensajeError a contenido
 
-  //Después de 3 segundos eliminamos o removemos el mensaje de error
+  //Después de 3 segundos eliminamos o removemos el mensaje de error con un temporizador como setTimeout()
   setTimeout(() => {
     mensajeError.remove();
   }, 3000);
@@ -72,8 +74,9 @@ function crearHtml() {
   //Primero limpiamos el HTML para que no se repitan los tweets
   limpiarHtml();
 
-  //Ejecutamos una validación en caso de que el arreglo "tweets" tenga algún contenido, ya que inicia vació
+  //Ejecutamos una validación en caso de que el arreglo "tweets" tenga algún contenido, ya que inicia vació y generamos el código HTML, si esta vació, no ejecuta nada
   if (tweets.length > 0) {
+    //Iteramos con un forEach() sobre el arreglo tweets
     tweets.forEach((tweet) => {
       //Agregamos botón para eliminar el tweet
       const btnEliminar = document.createElement("a");
@@ -84,22 +87,23 @@ function crearHtml() {
       btnEliminar.onclick = () => {
         borrarTweet(tweet.id);
       };
+
       //Creamos el código HTML
       const li = document.createElement("li");
       //Añadimos texto
       li.textContent = tweet.tweet; //Accedemos a la clave "tweet" del objeto "tweetObj"
       //Añadimos el botón a la etiqueta "li"
       li.appendChild(btnEliminar);
-      //Definimos ubicación de los tweet en el Documento HTML
+      //Insertamos "li" en el elemento "listaTweets" del Documento HTML
       listaTweets.appendChild(li);
     });
   }
 
-  // Llamada a la función  que agrega los tweets al local storage
+  // Llamada a la función  que agrega los tweets al local storage del navegador
   sincronizarStorage();
 }
 
-// Agrega los tweets actuales al local storage
+// Agrega los tweets actuales al local storage del navegador
 function sincronizarStorage() {
   localStorage.setItem("tweets", JSON.stringify(tweets));
 }
