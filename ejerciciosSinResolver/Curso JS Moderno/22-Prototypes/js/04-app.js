@@ -51,13 +51,13 @@ function Persona(nombre, saldo, telefono) {
   // this.saldo = saldo;
   // this.telefono = telefono;
 
-  // Debe ser:
-  Cliente.call(this, nombre, saldo);
+  // Heredamos nombre y saldo de Cliente:
+  Cliente.call(this, nombre, saldo);//.call() manda llamar una función
   this.telefono = telefono;
 }
 
 // Heredar la función ( Antes de Instanciarlo )
-Persona.prototype = Object.create(Cliente.prototype);
+Persona.prototype = Object.create(Cliente.prototype);// Object.create() copia el prototype de la clase Cliente y lo asigna a otra función
 
 // Heredar el constructor
 Persona.prototype.constructor = Cliente;

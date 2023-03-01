@@ -44,3 +44,5 @@ pedro.retiraSaldo(2000);
 
 // comprobar saldo
 console.log(pedro.nombreClienteSaldo());
+
+console.log(pedro);
