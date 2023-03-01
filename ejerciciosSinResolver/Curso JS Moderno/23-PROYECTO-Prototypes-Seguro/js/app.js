@@ -1,84 +1,130 @@
 //-------------------- CONSTRUCTORES --------------------//
 function Seguro(marca, year, tipo) {
-    this.marca = marca;
-    this.year = year;
-    this.tipo = tipo;
+  this.marca = marca;
+  this.year = year;
+  this.tipo = tipo;
+}
+
+// Realiza la cotización con los datos
+Seguro.prototype.cotizarSeguro = function () {
+  /* 
+  1 = Americano, incrementa valor en 1.15
+  2 = Asiático, incrementa valor en 1.05
+  3 = Europa, incrementa valor en 1.35 
+  */
+
+  let cantidad;
+  const base = 2000;
+
+  switch (this.marca) {
+    case "1":
+      cantidad = base * 1.15;
+      break;
+    case "2":
+      cantidad = base * 1.05;
+      break;
+    case "3":
+      cantidad = base * 1.35;
+      break;
+    default:
+      break;
+  }
+
+  // Leer el año
+  const diferencia = new Date().getFullYear() - this.year;
+
+  // Cada año que la diferencia es mayor, el costo del valor del seguro va a reducirse un 3%
+  cantidad -= (diferencia * 3 * cantidad) / 100;
+
+  /* 
+    Si el seguro es básico se multiplica por un 30% (1.3) mas
+    Si el seguro es completo se multiplica por un 50% (1.5) mas
+  */
+  if (this.tipo === "basico") {
+    cantidad *= 1.3;
+  } else {
+    cantidad *= 1.5;
+  }
+
+  return cantidad;
 };
 
 // Objeto para la Interfaz de Usuario "UI"
-function UI(){};
+function UI() {}
 
 // LLena las opciones de los años, es decir genera el HTML, este es el primer prototype de la interfaz "UI"
 UI.prototype.llenarOpciones = function () {
-    const max = new Date().getFullYear(),//.getFullYear() nos trae el año actual 2023
-        min = max - 20;
+  const max = new Date().getFullYear(), //.getFullYear() nos trae el año actual 2023
+    min = max - 20;
 
-    const selecYear = document.querySelector("#year");
+  const selecYear = document.querySelector("#year");
 
-    //Con un ciclo for iteramos sobe el año maximo "max" hasta el año minimo "min" creando las diferentes opciones del elemento "select"
-    for (let i = max; i >= min; i--) {
-        let option = document.createElement("option");
-        option.value = i;
-        option.textContent = i;
-        selecYear.appendChild(option);
-    };
+  //Con un ciclo for iteramos sobe el año maximo "max" hasta el año minimo "min" creando las diferentes opciones del elemento "select"
+  for (let i = max; i >= min; i--) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    selecYear.appendChild(option);
+  }
 };
 
 // Prototype 2 que muestra alertas en pantalla
 UI.prototype.mostrarMensaje = function (mensaje, tipo) {
-    const div = document.createElement("div");
+  const div = document.createElement("div");
 
-    if(tipo === "error"){
-        div.classList.add("error");
-    } else {
-        div.classList.add("correcto");
-    }
+  if (tipo === "error") {
+    div.classList.add("error");
+  } else {
+    div.classList.add("correcto");
+  }
 
-    div.classList.add("mensaje", "mt-10");
-    div.textContent = mensaje;
+  div.classList.add("mensaje", "mt-10");
+  div.textContent = mensaje;
 
-    // Insertamos el div en el HTML
-    const formulario = document.querySelector("#cotizar-seguro");
-    formulario.insertBefore(div, document.querySelector("#resultado"));
+  // Insertamos el div en el HTML
+  const formulario = document.querySelector("#cotizar-seguro");
+  formulario.insertBefore(div, document.querySelector("#resultado"));
 
-    setTimeout(() => {
-        div.remove();
-    }, 3000);
+  setTimeout(() => {
+    div.remove();
+  }, 3000);
 };
 
 // Instanciamos un objeto de "UI"
 const ui = new UI();
 
-document.addEventListener('DOMContentLoaded', () => {
-    ui.llenarOpciones();//llenamos el elemento "select" con los años
+document.addEventListener("DOMContentLoaded", () => {
+  ui.llenarOpciones(); //Llenamos el elemento "select" con los años
 });
 
 eventListeners();
-function eventListeners(){
-    const formulario = document.querySelector("#cotizar-seguro");
-    formulario.addEventListener("submit", cotizarSeguro);
-};
+function eventListeners() {
+  const formulario = document.querySelector("#cotizar-seguro");
+  formulario.addEventListener("submit", cotizarSeguro);
+}
 
-function cotizarSeguro(e){
-    e.preventDefault();
+function cotizarSeguro(e) {
+  e.preventDefault();
 
-    // Leer la marca seleccionada
-    const marca = document.querySelector("#marca").value;
+  // Leer la marca seleccionada
+  const marca = document.querySelector("#marca").value;
 
-    // Leer el año seleccionado
-    const year = document.querySelector("#year").value;
+  // Leer el año seleccionado
+  const year = document.querySelector("#year").value;
 
-    // Leer el tipo de seguro seleccionado, que es un input de tipo radio de HTML
-    const tipo = document.querySelector("input[name='tipo']:checked").value;
+  // Leer el tipo de seguro seleccionado, que es un input de tipo radio de HTML
+  const tipo = document.querySelector("input[name='tipo']:checked").value;
 
-    // VALIDACIONES
-    if(marca === "" || year === "" || tipo === ""){
-        ui.mostrarMensaje("Todos los campos son obligatorios", "error");
-        return;
-    }
-    ui.mostrarMensaje("Cotizando...", "exito");
+  // VALIDACIONES
+  if (marca === "" || year === "" || tipo === "") {
+    ui.mostrarMensaje("Todos los campos son obligatorios", "error");
+    return;
+  }
+  ui.mostrarMensaje("Cotizando...", "exito");
 
-    // Instanciamos un objeto de "Seguro"
+  // Instanciamos un objeto de "Seguro"
+  const seguro = new Seguro(marca, year, tipo);
+  seguro.cotizarSeguro();
 
-    // Utilizar prototype que va a cotizar el seguro
-};
+  // Utilizar prototype que va a cotizar el seguro
+}
