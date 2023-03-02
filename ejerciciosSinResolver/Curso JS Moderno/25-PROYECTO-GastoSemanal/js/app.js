@@ -17,6 +17,11 @@ class Presupuesto {
     this.restante = Number(presupuesto);
     this.gastos = [];
   }
+
+  nuevoGasto(gasto){
+    this.gastos = [...this.gastos, gasto];
+    console.log(this.gastos);
+  }
 }
 
 //Clase User Interface "UI"
@@ -31,27 +36,29 @@ class UI {
   }
 
   imprimirAlerta(mensaje, tipo) {
-    //Creamos un div
+    //Creamos un div de alerta
     const divMensaje = document.createElement("div");
     divMensaje.classList.add("text-center", "alert");
 
-    //Validación
+    //Validamos si es de tipo de error o de tipo correcto
     if (tipo === "error") {
-      divMensaje.classList.add("alert-danger");
+      divMensaje.classList.add("alert-danger");//Error
     } else {
-      divMensaje.classList.add("alert-success");
+      divMensaje.classList.add("alert-success");//Exito
     }
 
-    //Mensaje de error
+    //Agregamos mensaje de error
     divMensaje.textContent = mensaje;
 
-    //Insertamos en el HTML
+    //Insertamos mensaje en el HTML
     document.querySelector(".primario").insertBefore(divMensaje, formulario); //insertBefore() toma 2 argumentos, el primero lo que vamos a insertar y el segundo en donde lo vamos a insertar
 
-    //Quitamos del HTML
+    //Quitamos el mensaje del HTML y ponemos el foco en el input gasto
     setTimeout(() => {
       divMensaje.remove();
+      document.querySelector("#gasto").focus();
     }, 3000);
+
   }
 }
 
@@ -76,7 +83,7 @@ function preguntarPresupuesto() {
 
   //Presupuesto valido
   presupuesto = new Presupuesto(presupuestoUsuario);
-  console.log(presupuesto);
+  //console.log(presupuesto);
 
   ui.insertarPresupuesto(presupuesto);
 }
@@ -87,16 +94,30 @@ function agregarGasto(e) {
 
   //Leer los datos del formulario
   const nombre = document.querySelector("#gasto").value;
-  const cantidad = document.querySelector("#cantidad").value;
+  const cantidad = Number(document.querySelector("#cantidad").value);
 
   //Validaciones
   if (nombre === "" || cantidad === "") {
     ui.imprimirAlerta("Ambos campos son obligatorios", "error");
+    return;//return para que no se ejecuten las siguientes líneas de codigo
+  } else if (!isNaN(nombre)){//Validamos que datos insertados sean letras no números
+    ui.imprimirAlerta("Campo gasto no valido", "error");
     return;
-  } else if (cantidad <= 0 || isNaN(cantidad)) {
+  } else if (cantidad <= 0 || isNaN(cantidad)) {//isNaN() valida que datos insertados sean números no letras
     ui.imprimirAlerta("Cantidad no válida", "error");
-    return;
+    return;//return para que no se ejecuten las siguientes líneas de codigo
   }
 
-  console.log("Agregando gasto");
+  //Generamos un objeto con el gasto
+  const gasto = { nombre, cantidad, id: Date.now() }; //Contrario al destructuring
+
+  //Añade un nuevo gasto
+  presupuesto.nuevoGasto(gasto);
+
+  //Mensaje de todo bien
+  ui.imprimirAlerta("Gasto agregado correctamente");
+
+  //Reiniciamos el formulario y ponemos el foco en el input gasto
+  formulario.reset();
+  document.querySelector("#gasto").focus();
 }
