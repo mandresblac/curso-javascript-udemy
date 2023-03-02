@@ -60,6 +60,39 @@ class UI {
     }, 3000);
 
   }
+
+  agregarGastoListado(gastos){
+    //Elimina el HTML previo
+    this.limpiarHtml();
+
+    //Iteramos sobre los gastos
+    gastos.forEach(gasto => {
+      const { cantidad, nombre, id } = gasto;// Desestructuramso gasto
+
+      //Creamos un elemento li de HTML
+      const nuevoGasto = document.createElement("li");
+      nuevoGasto.className = "list-group-item d-flex justify-content-between align-items-center";
+      nuevoGasto.dataset.id = id;
+
+      //Agregar el HTML del gasto
+      nuevoGasto.innerHTML = `${nombre} <span class="badge badge-primary badge-pill">${cantidad}</span>`;
+
+      //Boton para borrar el gasto
+      const btnBorrar = document.createElement("button");
+      btnBorrar.classList.add("btn", "btn-danger", "borrar-gasto");
+      btnBorrar.innerHTML = "Borrar &times";
+      nuevoGasto.appendChild(btnBorrar);
+
+      //Agregamos el boton al HTML
+      gastoListado.appendChild(nuevoGasto);
+    });
+  }
+
+  limpiarHtml() {
+    while (gastoListado.firstChild) {
+      gastoListado.removeChild(gastoListado.firstChild);
+    }
+  }
 }
 
 // Instanciar objetos
@@ -100,10 +133,10 @@ function agregarGasto(e) {
   if (nombre === "" || cantidad === "") {
     ui.imprimirAlerta("Ambos campos son obligatorios", "error");
     return;//return para que no se ejecuten las siguientes líneas de codigo
-  } else if (!isNaN(nombre)){//Validamos que datos insertados sean letras no números
+  } else if (!isNaN(nombre)){//Validamos que los datos insertados sean letras no números
     ui.imprimirAlerta("Campo gasto no valido", "error");
     return;
-  } else if (cantidad <= 0 || isNaN(cantidad)) {//isNaN() valida que datos insertados sean números no letras
+  } else if (cantidad <= 0 || isNaN(cantidad)) {//isNaN() valida que los datos insertados sean números no letras
     ui.imprimirAlerta("Cantidad no válida", "error");
     return;//return para que no se ejecuten las siguientes líneas de codigo
   }
@@ -116,6 +149,10 @@ function agregarGasto(e) {
 
   //Mensaje de todo bien
   ui.imprimirAlerta("Gasto agregado correctamente");
+
+  //Imprimir los gastos
+  const { gastos} = presupuesto;//Desestructuramos el objeto presupuesto
+  ui.agregarGastoListado(gastos);
 
   //Reiniciamos el formulario y ponemos el foco en el input gasto
   formulario.reset();
