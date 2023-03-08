@@ -1,13 +1,3 @@
-formulario.addEventListener("submit", nuevaCita);
+import App from "./clases/App.js";
 
-// Eventos
-function eventListeners() {
-  mascotaInput.addEventListener("change", datosCita);
-  propietarioInput.addEventListener("change", datosCita);
-  telefonoInput.addEventListener("change", datosCita);
-  fechaInput.addEventListener("change", datosCita);
-  horaInput.addEventListener("change", datosCita);
-  sintomasInput.addEventListener("change", datosCita);
-}
-
-eventListeners();
+const app = new App();
