@@ -1,10 +1,16 @@
+// ------------------ VARIABLES Y SELECTORES ------------------ //
+
 const container = document.querySelector(".container");
 const resultado = document.querySelector("#resultado");
 const formulario = document.querySelector("#formulario");
 
+// ------------------------- EVENTOS ------------------------- //
+
 window.addEventListener("load", () => {
   formulario.addEventListener("submit", buscarClima);
 });
+
+// ------------------------ FUNCIONES ------------------------ //
 
 function buscarClima(e) {
   e.preventDefault();
