@@ -22,7 +22,7 @@ function mostrarAlerta(mensaje) {
 
     const existeAlerta = document.querySelector(".bg-red-100")
 
-    //Validacion para que solo genere una alerta y no multiples
+    //Validacion para que solo genere una alerta y no multiples, es decir limpia el HTML
     if (!existeAlerta) {
         const alerta = document.createElement("p");
         alerta.classList.add("bg-red-100", "border-red-400", "text-red-700", "px-4", "py-3", "rounded", "max-w-lg", "mx-auto", "mt-6", "text-center");//Clases de Tailwind Css
