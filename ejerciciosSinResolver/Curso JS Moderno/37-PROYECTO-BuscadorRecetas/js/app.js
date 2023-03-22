@@ -116,10 +116,95 @@ function iniciarApp() {
       <img class="img-fluid" src="${strMealThumb}" alt="receta ${strMeal}" />
       <h3 class="my-3">Instrucciones</h3>
       <p>${strInstructions}</p>
+      <h3 class="my-3">Ingredientes y cantidades</h3>
     `;
+
+    // Creamos un elemento "ul" de HTML
+    const listGroup = document.createElement("ul");
+    listGroup.classList.add("list-group");
+
+    // Mostrar cantidades e ingredientes
+    for (let i = 1; i <= 20; i++) {
+      // Validamos si hay algo
+      if (receta[`strIngredient${i}`]) {
+        const ingrediente = receta[`strIngredient${i}`];
+        const cantidad = receta[`strMeasure${i}`];
+
+        // Creamos un elemento "li" de HTML
+        const ingredienteLi = document.createElement("li");
+        ingredienteLi.classList.add("list-group-item");
+        ingredienteLi.textContent = `${ingrediente} - ${cantidad}`;
+
+        // Agregamos el elemento "li" al "ul"
+        listGroup.appendChild(ingredienteLi);
+      }
+
+    }
+
+    modalBody.appendChild(listGroup);
+
+    // Traemos del documento HTML el elemento con clase ".modal-footer"
+    const modalFooter = document.querySelector(".modal-footer")
+
+    // Limpiamos el modalFooter para que aparescan solo dos botones
+    limpiarHtml(modalFooter)
+
+    // Botones de favorito y cerrar
+    const btnFavorito = document.createElement("button");
+    btnFavorito.classList.add("btn", "btn-danger", "col");
+    btnFavorito.textContent = existeStorage(idMeal) ? "Eliminar Favorito": "Guardar favorito";
+
+    // Almacenar y eliminar elementos del localStorage
+    btnFavorito.onclick = function () {
+      //Eliminando
+      if(existeStorage(idMeal)) {
+        eliminarFavorito(idMeal);
+        btnFavorito.textContent = "Guardar favorito";
+        return;
+      };
+
+      //Agregando
+      agregarFavorito({
+        id: idMeal,
+        titulo: strMeal,
+        img: strMealThumb
+      });
+      btnFavorito.textContent = "Eliminar favorito";
+    }
+
+    const btnCerrarModal = document.createElement("button");
+    btnCerrarModal.classList.add("btn", "btn-secondary", "col");
+    btnCerrarModal.textContent = "Cerrar";
+
+    //Para darle la funcionalidad al boton de cerrar
+    btnCerrarModal.onclick = () => {
+      modal.hide(); //Para cerrar el modal
+    }
+
+    // Agregamos botones al footer
+    modalFooter.appendChild(btnFavorito);
+    modalFooter.appendChild(btnCerrarModal);
 
     // Muestra el modal
     modal.show();
+  }
+
+  function agregarFavorito(receta) {
+    //Si no existe le agrega un arreglo ?? []
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];// JSON.parse() convierte formato JSON a objeto de Javascript
+
+    localStorage.setItem("favoritos", JSON.stringify([...favoritos, receta]));
+  }
+
+  function eliminarFavorito(id) {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
+    const nuevosaFavoritos = favoritos.filter(favorito => favorito.id !== id);
+    localStorage.setItem("favoritos", JSON.stringify(nuevosaFavoritos));
+  }
+
+  function existeStorage(id) {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
+    return favoritos.some(favorito => favorito.id === id);
   }
 
   function limpiarHtml(selector) {
