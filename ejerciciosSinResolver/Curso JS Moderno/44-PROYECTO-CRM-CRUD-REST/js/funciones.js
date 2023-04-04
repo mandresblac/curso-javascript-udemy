@@ -20,3 +20,8 @@ export function mostrarAlerta(mensaje) {
         }, 3000);
     }
 };
+
+export function validar(objeto) {
+    //Si al menos uno de los campos esta vacio retorna false
+    return !Object.values(objeto).every( input => input !== "" );
+}

@@ -1,5 +1,5 @@
 import { nuevoCliente } from "./API.js";
-import { mostrarAlerta } from "./funciones.js";
+import { mostrarAlerta, validar } from "./funciones.js";
 
 (function() {
     const formulario = document.querySelector("#formulario");
@@ -28,11 +28,6 @@ import { mostrarAlerta } from "./funciones.js";
         }
 
         nuevoCliente(cliente);
-    }
-
-    function validar(objeto) {
-        //Si al menos uno de los campos esta vacio retorna false
-        return !Object.values(objeto).every( input => input !== "" );
     }
 
 })();
