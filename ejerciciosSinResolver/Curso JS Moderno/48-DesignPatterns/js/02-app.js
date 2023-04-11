@@ -10,7 +10,7 @@ class Persona {
 
 class Cliente extends Persona {
     constructor(nombre, email, empresa) {
-        super(nombre, email);
+        super(nombre, email); // Hace referencia a los atributos de la clase padre
         this.empresa = empresa;
     }
 }
