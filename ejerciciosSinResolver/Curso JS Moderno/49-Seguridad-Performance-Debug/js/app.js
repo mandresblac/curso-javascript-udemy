@@ -25,27 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
 // Consulta la API par aobtener un listado de Criptomonedas
 function consultarCriptomonedas() {
 
-    // Ir  AtoPLISTS Y Despues market capp 
+    // Ir  AtoPLISTS Y Despues market capp
     const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
 
     fetch(url)
         .then( respuesta => respuesta.json()) // Consulta exitosa...
-        .then( resultado => obtenerCriptomonedas(resultado.Data)) // 
+        .then( resultado => obtenerCriptomonedas(resultado.Data)) //
         .then( criptomonedas  =>  selectCriptomonedas(criptomonedas) )
         .catch( error => console.log(error));
 }
-// llena el select 
+// llena el select
 function selectCriptomonedas(criptomonedas) {
 
-    criptomonedas.forEach( cripto => {
+    /* criptomonedas.forEach( cripto => {
         const { FullName, Name } = cripto.CoinInfo;
         const option = document.createElement('option');
         option.value = Name;
         option.textContent = FullName;
         // insertar el HTML
         criptomonedasSelect.appendChild(option);
-    });
+    }); */
 
+    for (let i = 0; i < criptomonedas.length; i++) {
+        const { FullName, Name } = criptomonedas[i].CoinInfo;
+        const option = document.createElement('option');
+        option.value = Name;
+        option.textContent = FullName;
+        // insertar el HTML
+        criptomonedasSelect.appendChild(option);
+    }
 }
 
 
@@ -73,7 +81,7 @@ function mostrarAlerta(mensaje) {
         // Crea el div
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('error');
-        
+
         // Mensaje de error
         divMensaje.textContent = mensaje;
 
@@ -89,18 +97,22 @@ function mostrarAlerta(mensaje) {
 
 function consultarAPI() {
 
+    const inicio = performance.now();
+
     const { moneda, criptomoneda} = objBusqueda;
 
     const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
 
     mostrarSpinner();
 
-    fetch(url)  
+    fetch(url)
         .then(respuesta => respuesta.json())
         .then(cotizacion => {
             mostrarCotizacionHTML(cotizacion.DISPLAY[criptomoneda][moneda]);
         });
 
+        const fin = performance.now();
+        console.log(fin - inicio);
 }
 
 function mostrarCotizacionHTML(cotizacion) {
@@ -149,7 +161,7 @@ function mostrarSpinner() {
     spinner.innerHTML = `
         <div class="bounce1"></div>
         <div class="bounce2"></div>
-        <div class="bounce3"></div>    
+        <div class="bounce3"></div>
     `;
 
     resultado.appendChild(spinner);
