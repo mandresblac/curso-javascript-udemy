@@ -14,12 +14,12 @@ describe('Testing al cliente', () => {
         expect(cliente.nombre).toBe('Manuel Blanco');
     });
 
-    // Prueba 2
+    // Prueba 3
     test('No es otro cliente', () => {
         expect(cliente.nombre).not.toBe("Pedro");
     });
 
-    // Prueba 2
+    // Prueba 4
     test('No tiene 500', () => {
         expect(cliente.balance).not.toBe(400);
     });
