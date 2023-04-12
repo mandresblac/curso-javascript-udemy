@@ -1,1 +1,4 @@
 .vscode
+
+# Ignora la carpeta node_modules
+/ejerciciosSinResolver/Curso JS Moderno/51-Testing-Jest/node_modules/
