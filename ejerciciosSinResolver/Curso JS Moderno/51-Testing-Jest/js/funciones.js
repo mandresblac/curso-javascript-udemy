@@ -1,14 +1,14 @@
 import Citas from './classes/Citas.js';
 import UI from './classes/UI.js';
 
-import { 
-    mascotaInput, 
-    propietarioInput, 
-    telefonoInput, 
-    fechaInput, 
-    horaInput, 
-    sintomasInput, 
-    formulario 
+import {
+    mascotaInput,
+    propietarioInput,
+    telefonoInput,
+    fechaInput,
+    horaInput,
+    sintomasInput,
+    formulario
 } from './selectores.js';
 
 const administrarCitas = new Citas();
@@ -61,7 +61,7 @@ export function nuevaCita(e) {
 
         // Generar un ID único
         citaObj.id = Date.now();
-        
+
         // Añade la nueva cita
         administrarCitas.agregarCita({...citaObj});
 
@@ -123,4 +123,8 @@ export function cargarEdicion(cita) {
 
     editando = true;
 
+};
+
+export function suma(a, b) {
+    return a + b;
 }

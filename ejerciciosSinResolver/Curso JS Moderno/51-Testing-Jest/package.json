@@ -4,11 +4,15 @@
   "description": "Aprendiendo JEST",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --env=jsdom"
   },
   "author": "Manuel Blanco",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.5.0"
   }
 }

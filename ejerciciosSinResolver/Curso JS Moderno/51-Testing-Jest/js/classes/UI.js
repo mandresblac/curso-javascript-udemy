@@ -11,7 +11,7 @@ class UI {
         // Crea el div
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('text-center', 'alert', 'd-block', 'col-12');
-        
+
         // Si es de tipo error agrega una clase
         if(tipo === 'error') {
              divMensaje.classList.add('alert-danger');
@@ -32,7 +32,7 @@ class UI {
    }
 
    imprimirCitas({citas}) { // Se puede aplicar destructuring desde la función...
-       
+
         this.limpiarHTML();
 
         this.textoHeading(citas);
@@ -88,14 +88,14 @@ class UI {
             divCita.appendChild(btnEditar)
 
             contenedorCitas.appendChild(divCita);
-        });    
+        });
    }
 
    textoHeading(citas) {
         if(citas.length > 0 ) {
             heading.textContent = 'Administra tus Citas '
         } else {
-            heading.textContent = 'No hay Citas, comienza creando una'
+            /* heading.textContent = 'No hay Citas, comienza creando una' */
         }
     }
 
