@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("LLena los campos para una nueva cita y la muestra", () => {
+describe("LLena los campos para una nueva cita y la edita", () => {
     it("Campos nueva cita", () => {
 
         cy.visit("http://127.0.0.1:5500/52-Testing-Cypress/index.html");
@@ -37,5 +37,18 @@ describe("LLena los campos para una nueva cita y la muestra", () => {
 
         cy.get("[data-cy='alerta']")
             .should("have.class", "alert-success")
+
+        cy.get("[data-cy='btn-editar']").click()
+
+        cy.get("[data-cy='mascota-input']")
+            .clear()
+            .type("Nuevo Firulais");
+
+        cy.get("[data-cy='submit-cita']")
+            .click();
     });
+
+    /* it("Editar la cita", () => {
+        cy.get("[data-cy='btn-editar']").click()
+    }); */
 })
