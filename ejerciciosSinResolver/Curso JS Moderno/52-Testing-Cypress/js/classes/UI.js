@@ -9,7 +9,11 @@ class UI {
 
     imprimirAlerta(mensaje, tipo) {
 
+        const alertaPrevia = document.querySelector(".alert");
 
+        if(alertaPrevia) {
+            alertaPrevia.remove();
+        }
 
         // Crea el div
         const divMensaje = document.createElement('div');
