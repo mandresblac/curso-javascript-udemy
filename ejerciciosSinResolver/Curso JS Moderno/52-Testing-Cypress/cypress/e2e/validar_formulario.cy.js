@@ -5,21 +5,17 @@ describe("Valida el formulario", () => {
 
         cy.visit("http://127.0.0.1:5500/52-Testing-Cypress/index.html");
 
-        // Verificar el elemento y su texto
-        cy.contains("[data-cy='titulo-proyecto']", "Administrador de Pacientes de Veterinaria");
-
         // Verificar que exista
-        cy.get("[data-cy='titulo-proyecto']").should("exist");
+        cy.get("[data-cy='formulario']")
+            .submit();
 
-        // Verificar que exista el elemento y contenga un texto en especifico
-        cy.get("[data-cy='titulo-proyecto']")
+        // seleccionar la alerta
+        cy.get("[data-cy='alerta']")
             .invoke("text")
-            .should("equal", "Administrador de Pacientes de Veterinaria");
+            .should("equal", "Todos los campos son Obligatorios")
 
-        // Verificar el texto de las citas
-        cy.get("[data-cy=citas-heading]")
-            .invoke("text")
-            .should("equal", "No hay Citas, comienza creando una");
+        cy.get("[data-cy='alerta']")
+            .should("have.class", "alert-danger")
     });
 })
 
