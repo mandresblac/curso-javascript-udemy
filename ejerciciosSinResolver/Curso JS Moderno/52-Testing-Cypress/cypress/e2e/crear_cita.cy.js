@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Carga la pagina principal", () => {
+describe("LLena los campos para una nueva cita", () => {
     it("Carga lapagina principal", () => {
 
         cy.visit("http://127.0.0.1:5500/52-Testing-Cypress/index.html");
