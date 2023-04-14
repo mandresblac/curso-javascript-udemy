@@ -8,6 +8,9 @@ class UI {
     }
 
     imprimirAlerta(mensaje, tipo) {
+
+
+
         // Crea el div
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('text-center', 'alert', 'd-block', 'col-12');
