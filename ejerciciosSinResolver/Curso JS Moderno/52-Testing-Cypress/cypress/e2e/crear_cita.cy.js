@@ -29,5 +29,13 @@ describe("Carga la pagina principal", () => {
         cy.get("[data-cy=citas-heading]")
             .invoke("text")
             .should("equal", "Administra tus Citas");
+
+        // seleccionar la alerta
+        cy.get("[data-cy='alerta']")
+            .invoke("text")
+            .should("equal", "Se agregó correctamente")
+
+        cy.get("[data-cy='alerta']")
+            .should("have.class", "alert-success")
     });
 })
