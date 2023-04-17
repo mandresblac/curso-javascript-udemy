@@ -3,3 +3,5 @@
 # Ignora la carpetas node_modules
 /ejerciciosSinResolver/Curso JS Moderno/51-Testing-Jest/node_modules/
 /ejerciciosSinResolver/Curso JS Moderno/52-Testing-Cypress/node_modules/
+/ejerciciosSinResolver/Curso JS Moderno/agenciaViajesNode/agenciaViajesNode/node_modules
+
