@@ -1,0 +1,14 @@
+{
+  "name": "agenciaviajesnode",
+  "version": "1.0.0",
+  "description": "Primer proyecto con Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Blanco",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
