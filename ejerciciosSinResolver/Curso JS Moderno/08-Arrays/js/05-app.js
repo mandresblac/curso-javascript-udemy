@@ -14,6 +14,7 @@ const producto2 = {
 
 carrito.push(producto1);
 carrito.push(producto2);
+console.log(carrito);
 
 // Añadir al Inicio del carrito...
 

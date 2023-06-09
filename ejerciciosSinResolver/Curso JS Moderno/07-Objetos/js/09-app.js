@@ -1,4 +1,6 @@
-// Veamos como unir 2 objetos, esto llega a ser muy común ya que algunas veces en una base de datos obtienes el ID del cliente y también tienes los clientes que pertenecen a ese ID y te gustaría unirlos
+"use strict";
+// Similar a Freeze, existe otro object method llamado .Seal()
+// A diferencia de .Freeze() no se pueden agregar ni eliminar propiedades pero si se pueden modificar las existentes...
 
 const producto = {
     nombre: "Monitor 20 pulgadas",
@@ -6,23 +8,20 @@ const producto = {
     disponible: true
 }
 
+Object.seal(producto);
 
-const medidas = {
-    peso: '1 kg',
-    medida: '1 metro'
-}
+// Se pueden reasignar
+producto.nombre = 'Tablet';
+console.log(producto);
+
+// Pero no eliminar
+// delete producto.precio;
+
+
+// Tampoco se pueden añadir nuevas
+// producto.imagen = "imagen.jpg";
+
+// Verificar si un objeto esta sellado .Seal()
+console.log(Object.isSealed(producto))
 
 console.log(producto);
-console.log(medidas);
-
-// Una forma de hacerlo es con el object method llamado assign
-
-const resultado1 = Object.assign(producto, medidas);
-
-console.log(resultado1);
-
-// Otra forma de hacerlo que se considera más moderna es con El Spread Operator o Rest Operator,
-const resultado2 = { ...producto, ...medidas};
-
-console.log(resultado2);
-

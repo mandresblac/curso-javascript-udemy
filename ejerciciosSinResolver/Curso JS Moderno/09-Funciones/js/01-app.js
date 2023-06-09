@@ -14,14 +14,14 @@ function sumar(a, b) {
 
 // Las funciones deben llamarse, de otra forma en realidad no hacen mucho:
 
-sumar(2, 3); // se manda llamar por su nombre seguido del parentesis()
+console.log(sumar(2, 3)); // se manda llamar por su nombre seguido del parentesis()
 
 // Expresión de función - Este tipo de funciones se asigna como si fuera una variable
 //Forma 2 - Función expresada (function expression)
 const sumar2 = function () {
-  console.log(3 + 3);
+  return 3 + 3;
 };
 
-sumar2(); // se manda llamar de la misma forma
+console.log(sumar2()); // se manda llamar de la misma forma
 
 // Existe una 3ra forma de crear funciones, que más bien son métodos, la veremos un poco más adelante...

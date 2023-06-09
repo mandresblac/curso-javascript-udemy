@@ -1,6 +1,7 @@
-"use strict";
-// Similar a Freeze, existe otro object method llamado .Seal()
-// A diferencia de .Freeze() no se pueden agregar ni eliminar propiedades pero si se pueden modificar las existentes...
+// Para que un objeto no pueda ser modificado habilitamos el modo estricto o "use strict" que nos permitira acceder a una serie de metodos para los objetos
+"use strict";       
+
+// Como vimos en el video anterior los objetos si se pueden modificar sus valores, veamos como prevenirlo en caso de que sea algo que desees hacer.
 
 const producto = {
     nombre: "Monitor 20 pulgadas",
@@ -8,19 +9,37 @@ const producto = {
     disponible: true
 }
 
-Object.seal(producto);
-
-// Se pueden reasignar
-producto.nombre = 'Tablet';
-
-// Pero no eliminar
-// delete producto.precio;
+// Para prevenir que un objeto sea modificado,  utilizaremos .freeze(), y funciona de la siguiente forma:
+Object.freeze( producto );
 
 
-// Tampoco se pueden añadir nuevas
+//producto.disponible = false;
+//producto.imagen = "imagen.jpg";
+
+//console.log(producto);
+
+// Para ello utilizaremos un Object Method o Métodos de objetos.
+
+// Seguido me dicen, porque les dices Métodos, eso suena como algo de programación orientada a objetos
+// En realidad ese es su nombre, object methods, y en los siguientes videos los estaremos viendo algunos que son muy útiles.
+
+// Pero veamos como prevenir que un objeto sea modificado, para ello utilizaremos freeze, y funciona de la siguiente forma:
+
+Object.freeze( producto ); // Freeze toma como argumento el objeto
+
+// producto.disponible = false;
+
+
+
+// Freeze tampoco permite agregar nuevas propiedaes
 // producto.imagen = "imagen.jpg";
 
-// Verificar si un objeto esta sellado
-console.log(Object.isSealed(producto))
+// Tampoco se pueden eliminar propiedades
+
+// delete producto.nombre;
+
+// Finalmente si quieres revisar si un objeto esta congelado puedes usar
+
+console.log(Object.isFrozen(producto));
 
 console.log(producto);

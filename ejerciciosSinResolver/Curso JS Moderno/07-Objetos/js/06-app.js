@@ -1,26 +1,28 @@
-// Si recuerdas una variable con const una vez que es definida no puede reasginarse su valor.
-
-
-// const producto = "Monitor";
-// producto = 'Tablet';
-// console.log(producto);
-
-
-// En el caso de los objetos veremos que tienen un comportamiento diferente, ya que sus propiedades si se pueden reescribir.
-
+// Veamos como hacer destructuring de un objeto que esta dentro de otro objeto..
 const producto = {
     nombre: "Monitor 20 pulgadas",
     precio: 30,
-    disponible: true
-}
+    disponible: true,
+    informacion : {
+        medidas: {
+            peso: '1kg',
+            medida: '1m'
+        },
+        fabricacion: {
+            pais: "China"
+        }
+    }
+};
 
 
-console.log(producto);
+const { nombre, precio, informacion, informacion: { fabricacion }, informacion: { fabricacion: { pais }, medidas: { peso, medida} } } = producto;
 
-producto.disponible = false;
+console.log(`nombre: ${nombre}`);
+console.log(`precio: ${precio}`);
+console.log("informacion: " , informacion);
+console.log("fabricacion: " , fabricacion);
+console.log("pais: " , pais);
+console.log(`peso: ${peso}`);
+console.log(`peso: ${peso}`);
+console.log(`medida: ${medida}`);
 
-console.log(producto); // Puedes ver que lo pudimos modificar, a pesar de ser const, veamos como prevenir esto en el próximo video
-
-delete producto.precio;
-
-console.log(producto);

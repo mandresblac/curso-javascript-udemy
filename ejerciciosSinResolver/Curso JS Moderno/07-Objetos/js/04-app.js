@@ -1,29 +1,32 @@
-// Un objeto puede contener cualquier tipo de dato dentro de el, incluso puede tener otros objetos:, esto se le conoce como Objetos anidados.
+// Veamos como asignar variables hacia un objeto
 
 
 const producto = {
     nombre: "Monitor 20 pulgadas",
     precio: 30,
     disponible: true,
-    informacion : {
-       medidas: {
-        peso: '1kg',
-        medida: '1m'
-       },
-       fabricacion: {
-        pais: "China"
-       }
-    }
 }
 
 
+// const nombre = producto.nombre;
+// console.log(nombre);
 
-console.log(producto); // Puedes ver que tenemos un objeto dentro de un objeto.
 
-// De nueva cuenta para acceder a un objeto, se utiliza la sintaxis de punto
 
-//console.log(producto.informacion);
-//console.log(producto.informacion.peso);
-//console.log(producto.informacion.medida);
-console.log(producto.informacion.medidas.medida);
-console.log(producto["informacion"]["fabricacion"]["pais"]);
+// Otra forma de hacerlo y que también es nueva, es con algo llamado object destructuring...
+
+// Destructuring significa, sacar de una esctructura, puede ser complejo, no lo es tanto sobretodo cuando lo practicas
+
+// const { nombre } = producto;
+// console.log(nombre);
+
+// const { precio } = producto;
+// console.log(precio)
+
+// O puedes hacerlo mejor con
+
+const {nombre, precio, disponible, noExiste} = producto;
+console.log(`Nombre: ${nombre}.`);
+console.log(`Precio: ${precio}.`);
+console.log(`Disponible: ${disponible}.`);
+console.log(`${noExiste}.`);

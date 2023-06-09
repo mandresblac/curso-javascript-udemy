@@ -2,9 +2,9 @@
 
 const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"];
 
-console.table(meses);
+// console.table(meses);
 
-// Si quieres saber cuantos elementos hay un arreglo puedes utilizar la propiedad
+// Si quieres saber cuantos elementos hay en un arreglo puedes utilizar la propiedad .length
 console.log(meses.length);
 
 //Destructuración de un array

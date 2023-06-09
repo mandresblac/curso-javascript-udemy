@@ -1,27 +1,29 @@
-// Veamos como hacer destructuring de un objeto que esta dentro de otro objeto..
+// Un objeto puede contener cualquier tipo de dato dentro de el, incluso puede tener otros objetos:, esto se le conoce como Objetos anidados.
+
+
 const producto = {
     nombre: "Monitor 20 pulgadas",
     precio: 30,
     disponible: true,
     informacion : {
         medidas: {
-        peso: '1kg',
-        medida: '1m'
-       },
-       fabricacion: {
-        pais: "China"
-       }
+            peso: '1kg',
+            medida: '1m'
+        },
+        fabricacion: {
+            pais: "China"
+        }
     }
-};
+}
 
 
-const { nombre, precio, informacion, informacion: { fabricacion: { pais }, medidas: { peso, medida} } } = producto;
 
-console.log(`nombre: ${nombre}`);
-console.log(`precio: ${precio}`);
-console.log("informacion: " , informacion);
-console.log("pais: " , pais);
-console.log(`peso: ${peso}`);
-console.log(`peso: ${peso}`);
-console.log(`medida: ${medida}`);
+// console.log(producto); // Puedes ver que tenemos un objeto dentro de un objeto.
 
+// De nueva cuenta para acceder a un objeto, se utiliza la sintaxis de punto
+
+// console.log(producto.informacion);
+// console.log(producto.informacion.medidas.peso);
+// console.log(producto.informacion.medidas);
+console.log(producto.informacion.medidas.medida);
+console.log(producto["informacion"]["fabricacion"]["pais"]);

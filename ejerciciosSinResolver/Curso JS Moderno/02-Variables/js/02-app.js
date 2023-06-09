@@ -1,4 +1,4 @@
-// var era la forma de crear variables en versiones anteriores de ECMASscript hoy en día las opciones se reducen a 2 let y const
+// var era la forma de crear variables en versiones anteriores de ECMASscript hoy en día las opciones se reducen a 2, let y const
 // Las reglas son básicamente las mismas con let
 
 let producto = "Tablet";

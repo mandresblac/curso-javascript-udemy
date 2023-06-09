@@ -2,18 +2,18 @@
 
 const numeros = [10, 20, 30, 40, 50];
 
-//const [primero, , segundo, tercero] = numeros;
+// const [primero, , segundo, tercero] = numeros;
 
 // console.log(numeros);
-//console.log(primero);
-//console.log(segundo);
-//console.log(tercero);
+// console.log(primero);
+// console.log(segundo);
+// console.log(tercero);
 
 // Si quieres saltarte un valor, pon una coma....
 
 // ahora, como extraes todos los otros valores, digamos que solo quieres crear la primer variable, mantener el arreglo original..
 
 const [primero, , segundo, ...tercero] = numeros;
-console.log(primero);
-console.log(segundo);
-console.log(tercero);
+// console.log(primero);
+// console.log(segundo);
+// console.log(tercero);

@@ -4,12 +4,12 @@
 
 sumar();
 function sumar() {
-  console.log(2 + 2);
+  return 2 + 2;
 }
 
 sumar2();
 const sumar2 = function () {
-  console.log(3 + 3);
+  return 3 + 3;
 };
 
 // Eso pasa porque JavaScript se ejecuta digamos en 2 vueltas - Eso se le conoce como Hoisting , la primer vuelta registra todas las funciones y determina las variables, esta etapa se le llama de creación,
@@ -20,11 +20,11 @@ const sumar2 = function () {
 
 // el segundo no funciona porque si bien es una función no es declarada como tal, lo ve más bien como una variable...
 
-// Esto se le conoce como hosting que basicamente son esas 2 etapas (creación y ejecución)
+// Esto se le conoce como hoisting que basicamente son esas 2 etapas (creación y ejecución)
 
 // básicamente tu código se ejecuta asi:
 
-const sumar2;
+// const sumar2;
 sumar2(); // a estas alturas es undefined...
 sumar2 = function () {
   console.log(3 + 3); // pero como ya habiamos llamado la función, se queda como undefined

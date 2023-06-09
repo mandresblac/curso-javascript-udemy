@@ -30,11 +30,11 @@ console.table(carrito);
 
 // Veamos como Eliminar elementos de un arreglo... con un objeto solo se utiliza delete, los arreglos también son sencillos de manipular
 
-// Eliminar el primer elemento...
-// carrito.shift();
-
 //Eliminar el ultimo elemento...
 // carrito.pop();
+
+// Eliminar el primer elemento...
+// carrito.shift();
 
 // Ahora supongamos que deseas eliminar elementos del medio, para ello se utiliza el método .splice()
 carrito.splice(3, 1); // El primer parámetro es la posición donde va a iniciar a cortar, el segundo parámetro es que tantos elementos vamos a borrar, 0 significa nada, entonces seria igual a no tener nada, si no le pasas un valor va a borrar todos a partir de ahi..

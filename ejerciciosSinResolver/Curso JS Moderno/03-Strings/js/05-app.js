@@ -2,9 +2,9 @@
 
 // .Replace() permite remplazar un texto especifico en un String
 const producto = 'Monitor 20 Pulgadas';
-console.log(producto.replace("20", "24"));
 console.log(producto.replace('Pulgadas', '"'));
 console.log(producto.replace('Monitor', 'Monitor curvo'));
+console.log(producto.replace("20", "24"));
 
 // Slice te va a permitir extraer,  es decir cortar, una parte de una cadena
 console.log( producto.slice(0, 10)); // Iniciar en 0 y cortar hasta 10

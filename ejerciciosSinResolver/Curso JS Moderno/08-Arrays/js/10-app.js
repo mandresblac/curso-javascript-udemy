@@ -10,7 +10,7 @@ const carrito = [
 // Muy similar al forEach existe un array metod llamado map, la diferencia es que map te crea un array nuevo...
 
 //.map() crea un nuevo arreglo
-const nuevoArray = carrito.map(function (producto) {
+const nuevoArray1 = carrito.map(function (producto) {
   return `Articulo: ${producto.nombre} Precio: $ producto.precio} `;
 });
 
@@ -19,5 +19,5 @@ const nuevoArray2 = carrito.forEach(function (producto) {
   return `Articulo: ${producto.nombre} Precio: $ producto.precio} `;
 });
 
-console.log(nuevoArray);
+console.log(nuevoArray1);
 console.log(nuevoArray2);

@@ -39,12 +39,13 @@ var dias99;
 
 var _01;
 //var 01_;
+var _usuario;
 
 
 // Estilos para nombrar variables con más de una palabra
 
 // más de una palabra.
-var nombreProducto = 'Monitor 30 Pulgadas'; // CamelCase
-var nombre_producto = 'Monitor 30 Pulgadas'; //underscore o snake case
-var NombreProducto = 'Monitor 30 Pulgadas'; // pascal case
+var nombreProducto = 'Monitor 30 Pulgadas'; // lowerCamelCase
+var nombre_producto = 'Monitor 30 Pulgadas'; // underscore o snake case
+var NombreProducto = 'Monitor 30 Pulgadas'; // pascal case para clases
 var nombreproducto = 'Monitor 30 Pulgadas';

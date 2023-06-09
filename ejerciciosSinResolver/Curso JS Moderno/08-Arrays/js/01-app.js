@@ -5,6 +5,7 @@
 // Veamos primero como crear un Arreglo...
 const numeros = [10, 20, 30, 40, 50];
 console.log(numeros);
+console.log(numeros.length);
 
 // En JavaScript cuando veas esos corchetes son buen indicativo de que esto es un arreglo, a diferencia de los objetos is recuerdas su sintaxis es la de unas llaves { }
 
@@ -19,7 +20,7 @@ const deTodo = [
   true,
   "si",
   null,
-  { nombre: "Juan", trabajo: "Programador" },
+  { nombre: "Manuel", trabajo: "Programador" },
   [1, 2, 3, 4],
 ];
 console.log(deTodo);

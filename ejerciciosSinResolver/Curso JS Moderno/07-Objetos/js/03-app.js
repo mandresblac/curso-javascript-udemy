@@ -1,34 +1,11 @@
-// Veamos como asignar variables hacia un objeto
+// Añadir nuevas propiedades a un objeto...
+// Para añadir nuevas propiedades se utiliza de la misma forma la sintaxis de punto
+producto.imagen = "image.jpg";
+console.log(producto);
 
+// Eliminar una propiedad de un objeto, se utiliza la palabra delete
+delete producto.nombre;
 
-const producto = {
-    nombre: "Monitor 20 pulgadas",
-    precio: 30,
-    disponible: true,
-}
+console.log(producto);
 
-
-//const nombre = producto.nombre;
-
-
-
-
-// Otra forma de hacerlo y que también es nueva, es con algo llamado object destructuring...
-
-// Destructuring significa, sacar de una esctructura, puede ser complejo, no lo es tanto sobretodo cuando lo practicas
-
-//const { nombre } = producto;
-
-
-// si deseas extraer más variables;
-//const { precio } = producto;
-
-//console.log(nombre)
-//console.log(precio)
-
-// O puedes hacerlo mejor con
-
-const {nombre, precio, disponible} = producto;
-console.log(`- Nombre: ${nombre}.`);
-console.log(`- Precio: ${precio}.`);
-console.log(`- Disponible: ${disponible}.`);
+// Algunas veces deseas asignar el valor de un objeto hacia una variable, veamos como hacerlo en el siguiente video

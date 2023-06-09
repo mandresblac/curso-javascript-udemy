@@ -5,7 +5,7 @@ const numero2 = "20.2";
 const numero3 = "Uno";
 const numero4 = 20;
 
-//console.log(numero1);
+// console.log(typeof numero1);
 
 // Convertir de Strings a Números flotantes o Enteros
 const stringANumero = parseInt(numero1)// Convertir de String a Número

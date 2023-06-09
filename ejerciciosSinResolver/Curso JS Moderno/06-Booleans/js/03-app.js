@@ -10,5 +10,5 @@ if(boolean1) {
     console.log('no, no es true')
 }
 
-//El código anterior es fácil de leer no?, pero se puede simplificar un poco más
+// El código anterior es fácil de leer no?, pero se puede simplificar un poco más
 console.log( boolean2  ? 'Si es true' : 'No no es true' )

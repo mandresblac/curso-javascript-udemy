@@ -18,20 +18,3 @@ console.log(`Disponible: ${producto.disponible}`);
 // Otra forma aunque no tan común es:
 console.log(producto['nombre']);
 
-
-
-
-// Crear nuevo video...
-
-
-// Añadir propiedades nuevas a un objeto...
-// Para añadir nuevas propiedades se utiliza de la misma forma la sintaxis de punto
-producto.imagen = "image.jpg";
-console.log(producto);
-
-// Finalmente para eliminar una propiedad se utiliza delete
-delete producto.nombre;
-
-console.log(producto);
-
-// Algunas veces deseas asignar el valor de un objeto hacia una variable, veamos como hacerlo en el siguiente video

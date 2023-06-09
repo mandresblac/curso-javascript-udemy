@@ -1,6 +1,6 @@
 // En este video estaremos viendo la palabra this...
 // This se refiere a los valores que existen dentro del mismo objeto
-// This es un aforma de referirse al objeto en si mismo
+// This es una forma de referirse al objeto en si mismo
 // This se mantiene dentro del ambito del objeto en el que fue declarado
 
 // Aún no hemos visto las funciones, pero lo haremos en los próximos capitulos...

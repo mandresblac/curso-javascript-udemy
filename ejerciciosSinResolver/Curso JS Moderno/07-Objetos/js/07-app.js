@@ -1,7 +1,12 @@
-// Para que un objeto no pueda ser modificado habilitamos el modo estricto o "use strict" que nos permitira acceder a una serie de metodos para los objetos
-"use strict";
+// Si recuerdas una variable con const una vez que es definida no puede reasginarse su valor.
 
-// Como vimos en el video anterior los objetos si se pueden modificar sus valores, veamos como prevenirlo en caso de que sea algo que desees hacer.
+
+// const producto = "Monitor";
+// producto = 'Tablet';
+// console.log(producto);
+
+
+// En el caso de los objetos veremos que tienen un comportamiento diferente, ya que sus propiedades si se pueden reescribir.
 
 const producto = {
     nombre: "Monitor 20 pulgadas",
@@ -9,37 +14,13 @@ const producto = {
     disponible: true
 }
 
-// Para prevenir que un objeto sea modificado,  utilizaremos .freeze(), y funciona de la siguiente forma:
-Object.freeze( producto );
 
+console.log(producto);
 
-//producto.disponible = false;
-//producto.imagen = "imagen.jpg";
+producto.disponible = false;
 
-//console.log(producto);
+console.log(producto); // Puedes ver que lo pudimos modificar, a pesar de ser const, veamos como prevenir esto en el próximo video
 
-// Para ello utilizaremos un Object Method o Métodos de objetos.
-
-// Seguido me dicen, porque les dices Métodos, eso suena como algo de programación orientada a objetos
-// En realidad ese es su nombre, object methods, y en los siguientes videos los estaremos viendo algunos que son muy útiles.
-
-// Pero veamos como prevenir que un objeto sea modificado, para ello utilizaremos freeze, y funciona de la siguiente forma:
-
-Object.freeze( producto ); // Freeze toma como argumento el objeto
-
-// producto.disponible = false;
-
-
-
-// Freeze tampoco permite agregar nuevas propiedaes
-// producto.imagen = "imagen.jpg";
-
-// Tampoco se pueden eliminar propiedades
-
-// delete producto.nombre;
-
-// Finalmente si quieres revisar si un objeto esta congelado puedes usar
-
-console.log( Object.isFrozen(producto) );
+delete producto.precio;
 
 console.log(producto);
