@@ -5,11 +5,11 @@
 let efectivo = 300;
 let credito = 400;
 let disponible = efectivo + credito;
-let totalCarrito = 700;
+let totalPagar = 700;
 
-if (efectivo > totalCarrito || credito > totalCarrito) {
+if (efectivo > totalPagar || credito > totalPagar) {
   console.log("Puedes pagar con efectivo o credito");
-} else if (disponible >= totalCarrito) {
+} else if (disponible >= totalPagar) {
   console.log("Paga con ambos");
 } else {
   console.log("No puedes pagar");

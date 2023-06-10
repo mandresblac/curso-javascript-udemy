@@ -2,12 +2,11 @@
 
 const reproductor = {
   cancion: "",
-  reproducir: (id) => console.log(`Reproduciendo canción id ${id}`),
-  pausar: () => console.log("pausando..."),
-  borrar: (id) => console.log(`Borrando canción con id: ${id}`),
-  crearPlaylist: (nombre) => console.log(`Creando la Playlist ${nombre}`),
-  reproducirPlaylist: (nombre) =>
-    console.log(`Reproduciendo la Playlist ${nombre}`),
+  reproducir: id => `Reproduciendo canción id ${id}`,
+  pausar: () => "pausando...",
+  borrar: id => `Borrando canción con id: ${id}`,
+  crearPlaylist: nombre => `Creando la Playlist ${nombre}`,
+  reproducirPlaylist: nombre => `Reproduciendo la Playlist ${nombre}`,
 
   // También existen los Set y Get si tienes experiencia con esos términos, y si no, set es para añadir un valor, get es para obtenerlo...
 

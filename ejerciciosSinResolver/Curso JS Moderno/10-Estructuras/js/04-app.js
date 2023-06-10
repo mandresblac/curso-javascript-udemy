@@ -3,7 +3,7 @@ let rol1 = "ADMIN";
 
 if (rol1 === "ADMIN") {
   console.log("El Usuario puede editar, eliminar y ver toda la información");
-} else if (rol === "EDITOR") {
+} else if (rol1 === "EDITOR") {
   console.log("El usuario solo puede editar sus registros");
 } else {
   console.log("El Usuario es visitante, solo puede ver la información");

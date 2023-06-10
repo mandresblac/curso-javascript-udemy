@@ -10,14 +10,10 @@ const carrito = [
 ];
 
 // .map()
-const nuevoArray = carrito.map(
-  (producto) => `Articulo: ${producto.nombre} Precio: ${producto.precio} `
-);
+const nuevoArray = carrito.map( producto => `Articulo:  ${producto.nombre} Precio: ${producto.precio}`);
 
 // .forEach()
-carrito.forEach((producto) =>
-  console.log(`Articulo: ${producto.nombre} Precio: ${producto.precio}`)
-);
+carrito.forEach( producto => `Articulo: ${producto.nombre} Precio: ${producto.precio}`);
 
 console.log(nuevoArray);
 

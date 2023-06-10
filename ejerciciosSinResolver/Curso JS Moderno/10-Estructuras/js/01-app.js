@@ -1,4 +1,4 @@
-// De momento todo nuestro código se ejecuta de arriba hacia abajo salvo cuando llamamos una función
+  // De momento todo nuestro código se ejecuta de arriba hacia abajo salvo cuando llamamos una función
 
 // Algunas veces vas a desear que tu código se ejecute basado en una condición
 
@@ -16,11 +16,8 @@
 const puntaje = "1000";
 
 // es igual
-if (puntaje === 1000) {
-  console.log("Si es igual!");
-} else {
-  console.log("No no es igual");
-}
+if (puntaje === 1000) console.log("Si es igual!");
+else console.log("No es igual");
 
 // Si esta condición se cumple se ejecutará el código, pero que pasa si no se cumple???
 

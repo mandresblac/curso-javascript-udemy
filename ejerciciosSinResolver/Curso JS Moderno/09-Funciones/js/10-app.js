@@ -10,10 +10,10 @@ const aprendiendo2 = () => {
   return "Aprendiendo JavaScript";
 };
 
-// una linea no requiere llaves
+// Una linea no requiere llaves
 const aprendiendo3 = () => console.log("Aprendiendo JavaScript");
 
-// retornar un valor
+// Dan por inplicito el return
 const aprendiendo4 = () => "Aprendiendo JavaScript";
 
 console.log(aprendiendo1());

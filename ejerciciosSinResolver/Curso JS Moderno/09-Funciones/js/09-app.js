@@ -4,29 +4,29 @@
 
 const reproductor = {
   reproducir: function (id) {
-    console.log(`Reproduciendo canción id ${id}`);
+    return `Reproduciendo canción con el id ${id}`;
   },
   pausar: function () {
-    console.log("pausando...");
+    return"pausando...";
   },
   borrar: function (id) {
-    console.log(`Borrando canción con id: ${id}`);
+    return `Borrando canción con id: ${id}`;
   },
   crearPlaylist: function (nombre) {
-    console.log(`Creando la Playlist ${nombre}`);
+    return `Creando la Playlist ${nombre}`;
   },
   reproducirPlaylist: function (nombre) {
-    console.log(`Reproduciendo la Playlist ${nombre}`);
+    return `Reproduciendo la Playlist ${nombre}`;
   },
 };
 
-reproductor.reproducir(30);
-reproductor.pausar();
+console.log(reproductor.reproducir(30));
+console.log(reproductor.pausar());
 
 // Tambien los métodos pueden quedarse por fuera
 // reproductor.borrar = function(id) {
-
+//   return `Borrando canción`;
 // }
-reproductor.borrar(30);
-reproductor.crearPlaylist("Heavy Metal");
-reproductor.reproducirPlaylist("Heavy Metal");
+console.log(reproductor.borrar(30));
+console.log(reproductor.crearPlaylist("Heavy Metal"));
+console.log(reproductor.reproducirPlaylist("Heavy Metal"));

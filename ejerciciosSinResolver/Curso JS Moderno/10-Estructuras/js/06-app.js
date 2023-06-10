@@ -21,10 +21,12 @@ if (usuario && puedePagar) {
 
 if (usuario && puedePagar) {
   console.log("Tu Pedido se hizo con éxito...");
+} else if (!puedePagar && !usuario) {
+  console.log("No puedes comprar");
 } else if (!usuario) {
-  console.log("Inicia sesión para realizar el pedido");
+  console.log("Inicia sesión para realizar el pedido.");
 } else if (!puedePagar) {
-  console.log("Fondos Insuficientes");
+  console.log("Fondos Insuficientes.");
 } else {
   console.log("hubo un error con tu pago.");
 }
