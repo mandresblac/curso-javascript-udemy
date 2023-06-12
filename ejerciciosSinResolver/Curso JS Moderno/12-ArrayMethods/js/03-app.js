@@ -19,12 +19,12 @@ const carrito = [
 
 // Con un foreach lo podrías hacer asi...
 
-let total = 0;
-carrito.forEach((producto) => (total += producto.precio));
+let total = 0; // Variable que acumula el resultado
+carrito.forEach( producto => total += producto.precio);
 console.log(total);
 
-// Puedes ver que si bien no se ve mal, podemos tenerlo todo en una sola linea con un .reduce
+// Puedes ver que si bien no se ve mal, podemos tenerlo todo en una sola linea con un reduce
 
 // total, actual
-let resultado = carrito.reduce((total, producto) => total + producto.precio, 0); //0 es el inicio
+let resultado = carrito.reduce((total, producto) => total + producto.precio, 0); // 0 es el valor de inicio
 console.log(resultado);

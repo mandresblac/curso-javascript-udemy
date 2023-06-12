@@ -15,7 +15,7 @@
 
 // Podemos llevar este ejemplo más allá una pregunta sencilla para programadores JR es como identificas un numero par o impar en un for loop...
 /* for (let i = 1; i <= 10; i++) {
-  if (i % 2 == 0) console.log(`Numero ${i} ES PAR `);
+  if (i % 2 === 0) console.log(`Numero ${i} ES PAR `);
   else console.log(`Numero ${i} ES IMPAR `);
 } */
 
@@ -30,7 +30,9 @@ const carrito = [
   { nombre: "Celular", precio: 800 },
 ];
 
+// console.log(carrito.length);
 for (let i = 0; i < carrito.length; i++) {
+  console.log(i);
   console.log(`Nombre: ${carrito[i].nombre} \nPrecio: ${carrito[i].precio}`);
 }
 

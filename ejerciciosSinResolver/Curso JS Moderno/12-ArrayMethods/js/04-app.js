@@ -1,6 +1,6 @@
 // Otro Array Method que quiero mostrarte es filter...
 
-// Filter va a crearte un arreglo basado en condición que se este evaluando..
+// Filter va a crearte un nuevo arreglo basado en la condición que se este evaluando..
 
 const carrito = [
   { nombre: "Monitor 20 Pulgadas", precio: 500 },
@@ -13,11 +13,11 @@ const carrito = [
   { nombre: "Laptop", precio: 800 },
 ];
 
-let resultado1 = carrito.filter((producto) => producto.precio > 400); // Todos los mayores a 400 - añadir  && producto.precio < 600
+let resultado1 = carrito.filter( producto => producto.precio > 400); // Todos los mayores a 400 - añadir  && producto.precio < 600
 
-let resultado2 = carrito.filter((producto) => producto.nombre === "Celular"); // Traerte el celular
+let resultado2 = carrito.filter( producto  => producto.nombre === "Celular"); // Traerte el celular
 
-let resultado3 = carrito.filter((producto) => producto.nombre !== "Laptop"); // Todos menos la laptop
+let resultado3 = carrito.filter( producto => producto.nombre !== "Laptop"); // Todos menos la laptop
 
 console.log(resultado1);
 console.log(resultado2);

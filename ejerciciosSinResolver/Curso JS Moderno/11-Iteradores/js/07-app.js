@@ -18,9 +18,7 @@ for (let tarea of pendientes) {
 }
 
 for (let producto of carrito) {
-  console.log(
-    `Id: ${producto.id} \nNombre: ${producto.nombre} \nPrecio: ${producto.precio}`
-  );
+  console.log(`Id: ${producto.id} \nNombre: ${producto.nombre} \nPrecio: ${producto.precio}`);
 }
 
 // Sin duda una forma más sencilla que un foreach y un for no?

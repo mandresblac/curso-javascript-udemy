@@ -22,7 +22,6 @@ carrito.forEach((producto) => {
 });
 console.log(cumple);
 
-const resultado = carrito.every((producto) => producto.precio < 1000); // Mil se cumple, 700 no...
+const resultado = carrito.every( producto => producto.precio < 1000); // Mil se cumple, 700 no...
 console.log(resultado);
 
-//

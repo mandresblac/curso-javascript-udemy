@@ -14,7 +14,7 @@ const carrito = [
 ];
 
 // Comprobar si un valor existe en un arreglo
-/* meses.forEach((mes) => {
+/* meses.forEach( mes => {
   if (mes === "Enero") {
     console.log("Enero si existe");
   }
@@ -25,9 +25,9 @@ const resultado = meses.includes("Enero");
 console.log(resultado);
 
 // En un arreglo de objetos y tambien de indices normales se puede utilizar el método .some()
-const existe = carrito.some((producto) => producto.nombre === "Celular");
-console.log(existe);
+const existe1 = carrito.some( producto => producto.nombre === "Celular");
+console.log(existe1);
 
-// EN un arreglo tradicional con .some()
-const existe2 = meses.some((mes) => mes === "Febrero");
+// En un arreglo tradicional con .some()
+const existe2 = meses.some( mes => mes === "Febrero");
 console.log(existe2);

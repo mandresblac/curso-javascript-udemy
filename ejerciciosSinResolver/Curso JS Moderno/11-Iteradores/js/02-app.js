@@ -1,20 +1,20 @@
 // Veamos lo que es break y continue, break cortará la ejecución del for loop, mientras que continue nos permitirá interceptar digamos un elemento y continuar su ejecucicón...
 
-for (let i = 0; i <= 10; i++) {
+/* for (let i = 0; i <= 10; i++) {
   if (i === 5) {
-    console.log("Estamos en el 5... FIN.");
+    console.log("Este es el 5... FIN.");
     break;
   }
   console.log(`Numero:  ${i} `);
-}
+} */
 
-for (let i = 0; i <= 10; i++) {
+/* for (let i = 0; i <= 10; i++) {
   if (i === 5) {
     console.log("Estamos en el 5... CONTINUAR....");
     continue;
   }
   console.log(`Numero:  ${i} `);
-}
+} */
 
 //  Y en que casos puedes utilizar el continue??
 
