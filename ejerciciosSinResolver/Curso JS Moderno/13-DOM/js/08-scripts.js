@@ -6,7 +6,7 @@ const navegacion = document.querySelector(".navegacion");
 console.log(navegacion);
 
 // Cada elemento en la navegación los diferentes elementos se les conoce como Nodos... y podrás listarlos de la siguiente forma...
-console.log(navegacion.childNodes); //childNodes trae los espacios en blanco que son tratados como elementos
+console.log(navegacion.childNodes); // childNodes trae los espacios en blanco que son tratados como elementos
 
 // también existe algo llamado Children
 console.log(navegacion.children);
@@ -14,8 +14,8 @@ console.log(navegacion.children);
 // La diferencia es que childNodes te va a mostrar hasta los espacios en blanco, children te muestra solo los elementos...
 
 // Hay mucha información aqui...
-console.log(navegacion.children[0].nodeType); // Tipo de Node = 1 es un eleemnto
 console.log(navegacion.children[0].nodeName); // Que etiqueta es...
+console.log(navegacion.children[0].nodeType); // Tipo de Node = 1 es un eleemnto
 
 // Por ejemplo si selecciono el primer card...
 
@@ -44,8 +44,7 @@ console.log(card.children[1].children[1]);
 console.log(card.children[1].children[1].textContent);
 
 // Modificar ese titulo con un traversing
-card.children[1].children[1].textContent =
-  "Cambiando el Texto con traversing...";
+card.children[1].children[1].textContent = "Cambiando el Texto con traversing...";
 
 // Intenta cambiar el texto que dice concierto por algo más siguiendo esta sintaxis de ir navegando por el DOM...
 
@@ -83,7 +82,7 @@ console.log(enlace.parentElement); // Es mejor utilizar .parentElement
 // En algunos casos ambos van a dar el mismo resultado, en otros recuerda el espacio es importante...
 
 // También puedes ir al padre del padre...
-console.log(enlace.parentElement.parentElement);
+console.log(enlace.parentElement.parentElement.parentElement);
 
 // En JavaScript también es posible de hacer traversing a elementos que están en el mismo nivel , digamos el vecino aunque en javascript se les conoce como hermanos...
 

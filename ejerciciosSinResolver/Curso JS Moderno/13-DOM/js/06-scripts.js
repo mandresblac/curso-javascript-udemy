@@ -4,12 +4,12 @@
 
 // Primero tenemos que seleccionarlo...
 const encabezado = document.querySelector(".contenido-hero h1");
-// console.log(encabezado);
+console.log(encabezado);
 
 // Si deseas acceder al texto hay 3 formas de hacerlo...
-console.log(encabezado.innerText); // Si en el CSS visibiliy: hidden; no lo va a encontrar
-console.log(encabezado.textContent); // Si lo va a encontrar
-console.log(encabezado.innerHTML); //innerHTML se trae el HML
+console.log(encabezado.innerText); // Si el texto tiene la propiedad "visibility: hidden;" que oculta en el CSS no lo va a encontrar
+console.log(encabezado.textContent); // Si lo va a encontrar asi tenga propiedad "visibility: hidden;" 
+console.log(encabezado.innerHTML); // innerHTML se trae el HTML
 
 // Cual es la diferencia entre estas 3... bueno, si le ponemos a ese elemento visibility: hidden; en el CSS,
 
@@ -20,8 +20,7 @@ console.log(encabezado.innerHTML); //innerHTML se trae el HML
 // TextContent va a ignorar esas etiquetas HTML y traer solo el texto, mientras que innerhTML si se trae el HTML..
 
 // ahora también puedes tener algo de encadenamiento o chaining...
-const textoEncabezado =
-  document.querySelector(".contenido-hero h1").textContent;
+const textoEncabezado = document.querySelector(".contenido-hero h1").textContent;
 console.log(textoEncabezado);
 
 // Ahora, aquí puedes ver que estoy asignando el Texto a una variable, pero también puedes modificarlo de diferentes formas...

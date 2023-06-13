@@ -7,7 +7,7 @@
 // Hay 2 formas de eliminar, una es eliminar un elemento por si mismo y la otra es eliminarlo desde el padre...
 
 const primerEnlace = document.querySelector("a");
-//console.log(primerEnlace);
+console.log(primerEnlace);
 primerEnlace.remove();
 
 // La otra forma es por el padre..
