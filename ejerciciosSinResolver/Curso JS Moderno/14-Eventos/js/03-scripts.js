@@ -39,13 +39,18 @@ busqueda.addEventListener("input", () => {
   console.log("Hiciste un input");
 });
 
-// Ahora, no tiene mucha utilidad enviar a la consola un mensaje no? lo ideal seria saber el texto que se escribe el usuario o poderlo leerlo
+// Ahora, no tiene mucha utilidad enviar a la consola un mensaje no? lo ideal seria saber el texto que escribe el usuario o poderlo leer
 
 busqueda.addEventListener("input", (e) => {
   console.log(e); // Mucha información...
   console.log(e.type); // Te dira sobre que elemento estamos trabajando...
   console.log(e.target); // el input completo...
   console.log(e.target.value); // Para conocer lo que el usuario escribe
+
+  // Validacion e.target.value
+  if(e.target.value === "") {
+    console.log("Fallo la validación");
+  }
 });
 
 // También puede ser como función...

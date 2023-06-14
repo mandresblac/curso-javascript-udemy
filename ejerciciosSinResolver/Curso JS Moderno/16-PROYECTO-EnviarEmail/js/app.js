@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //Objeto donde se verifica que todos los campos estén llenos
+  // Objeto donde se verifica que todos los campos estén llenos
   const email = {
     email: "",
     asunto: "",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnReset = document.querySelector('#formulario button[type="reset"]');
   const spinner = document.querySelector("#spinner");
 
-  //Asignamos los eventos
+  // Asignamos los eventos
   inputEmail.addEventListener("input", validar);
   inputAsunto.addEventListener("input", validar);
   inputMensaje.addEventListener("input", validar);
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   formulario.addEventListener("submit", enviarEmail);
 
   btnReset.addEventListener("click", (e) => {
-    e.preventDefault(); //Previene la acción por defecto del reset que es reiniciar el formulario
+    e.preventDefault(); // Previene la acción por defecto del boton reset que es reiniciar el formulario
     resetFormulario();
   });
 
@@ -41,17 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       //Creamos mensaje de alerta exitosa
       const alertaExito = document.createElement("p");
-      alertaExito.classList.add(
-        "bg-green-500",
-        "text-white",
-        "p-2",
-        "text-center",
-        "rounded-lg",
-        "mt-10",
-        "font-bold",
-        "text-sm",
-        "uppercase"
-      ); // Clases de Tailwind CSS
+      alertaExito.classList.add( "bg-green-500", "text-white", "p-2", "text-center",
+      "rounded-lg", "mt-10", "font-bold", "text-sm","uppercase"); // Clases de Tailwind CSS
       alertaExito.textContent = "MENSAJE ENVIADO CORRECTAMENTE";
 
       //Agregamos la alerta de éxito al DOM
@@ -65,11 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function validar(e) {
-    if (e.target.value.trim() === "") {
-      mostrarAlerta(
-        `El campo ${e.target.id} es obligatorio`,
-        e.target.parentElement
-      );
+    // Validacion para revisar que los campos no esten vacios
+    if (e.target.value.trim() === "") { // .trim() elimina espacios en blanco
+      mostrarAlerta( `El campo ${e.target.id} es obligatorio`, e.target.parentElement);
       email[e.target.name] = "";
       comprobarEmail();
       return;
@@ -94,10 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Muestra una alerta si el usuario comete un error
   function mostrarAlerta(mensaje, referencia) {
-    //Comprueba si ya existe una alerta
+    // Comprueba si ya existe una alerta
     limpiarAlerta(referencia);
 
-    //Generamos alerta en HTML
+    // Generamos alerta en HTML
     const error = document.createElement("p");
     error.textContent = mensaje;
     error.classList.add("bg-red-600", "text-white", "p-2", "text-center"); //Agregamos clases al elemento error generado en el HTML, en este caso una clase de Tailwind CSS
@@ -107,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function limpiarAlerta(referencia) {
+    // Comprueba si ya existe una alerta
     const alerta = referencia.querySelector(".bg-red-600");
     if (alerta) {
       alerta.remove();
@@ -115,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validarEmail(email) {
     const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/; //Expresión regular para validar email
-    const resultado = regex.test(email); //.test() retorna false sino se cumple la expresión regular y true si se cumple la expresión regular
+    const resultado = regex.test(email); // .test() retorna false sino se cumple la expresión regular y true si se cumple la expresión regular
     return resultado;
   }
 
@@ -137,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     email.asunto = "";
     email.mensaje = "";
 
-    formulario.reset(); //Reinicia el formulario
-    comprobarEmail(); //LLamamos la función comprobarEmail() que comprueba que el objeto email este lleno
+    formulario.reset(); // Reinicia el formulario
+    comprobarEmail(); // LLamamos la función comprobarEmail() que comprueba que el objeto email este lleno
   }
 });

@@ -14,7 +14,7 @@ const parrafo3 = document.createElement("p");
 parrafo3.textContent = "$800 por persona";
 parrafo3.classList.add("precio");
 
-// Asociamos una función anónima cuando damos click
+// Asociamos una función anónima cuando damos click al parrafo3
 parrafo3.onclick = function () {
   nuevaFuncion(1);
 };

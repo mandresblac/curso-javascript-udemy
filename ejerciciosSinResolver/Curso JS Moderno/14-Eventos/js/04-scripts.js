@@ -9,7 +9,7 @@ const formulario = document.querySelector(".formulario");
 formulario.addEventListener("submit", validarFormulario);
 
 function validarFormulario(e) {
-  e.preventDefault(); // PreventDefault es evitar que el navegador realice la acción por default, en este caso ir al action que envía el formulario
+  e.preventDefault(); // PreventDefault es evitar que el navegador realice la acción por default, en este caso ir al action que envía el formulario en el HTML y enviar los datos via metodo "POST"
 
   // Usualmente utilizaras preventDefault para validar el formulario antes de enviarlo a un servidor
 
