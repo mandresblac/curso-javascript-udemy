@@ -1,4 +1,4 @@
-// Variables
+// VARIABLES
 const marca = document.querySelector("#marca");
 const year = document.querySelector("#year");
 const minimo = document.querySelector("#minimo");
@@ -13,8 +13,10 @@ const resultado = document.querySelector("#resultado");
 // Variables de año
 const maxYear = new Date().getFullYear(); //.getFullYear() nos trae el año actual
 const minYear = maxYear - 10;
+// console.log(maxYear);
+// console.log(minYear);
 
-// Generamos objeto con la búsqueda para filtra los objetos del array que están en el archivo db.js
+// Generamos objeto con la búsqueda para filtrar los objetos del array que están en el archivo db.js
 const datosBusqueda = {
   marca: "",
   year: "",
@@ -25,7 +27,7 @@ const datosBusqueda = {
   color: "",
 };
 
-// Eventos
+// EVENTOS
 document.addEventListener("DOMContentLoaded", () => {
   // Muestra los automóviles al cargar
   mostrarAutos(autos);
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // EVENT LISTENERS PARA LOS SELECT DE BÚSQUEDA
-//Evento change para cuando cambia el select
+// Evento change para cuando cambia el select
 marca.addEventListener("change", (e) => {
   datosBusqueda.marca = e.target.value;
 
@@ -139,8 +141,7 @@ function noResultado() {
   //Luego de limpia el HTML generamos un div con un mensaje de error
   const noResultado = document.createElement("div"); //Creamos un elemento div de HTML
   noResultado.classList.add("alerta", "error"); //Agregamos clases al elemento div
-  noResultado.textContent =
-    "No hay resultados, intenta con otros términos de búsqueda"; //Generamos texto en el elemento div
+  noResultado.textContent = "No hay resultados, intenta con otros términos de búsqueda"; //Generamos texto en el elemento div
   resultado.appendChild(noResultado); //Añadimos el div "noResultado" al elemento resultado del HTML
 }
 
