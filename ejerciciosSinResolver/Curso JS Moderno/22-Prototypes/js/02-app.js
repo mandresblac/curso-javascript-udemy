@@ -1,19 +1,20 @@
 // El problema que solucionan los prototypes...
 
 //Cliente
+// Funcion constructora
 function Cliente(nombre, saldo) {
   this.nombre = nombre;
   this.saldo = saldo;
 }
 
 //Instancia de cliente
-const juan = new Cliente("Juan", 400);
+const juan = new Cliente("Juan", 500);
 
 console.log(juan);
 
 // Supongamos que queremos una función que muestre el nombre y saldo...
 function formatearCliente(cliente) {
-  //Desestructuramos Cliente
+  //Desestructuramos la clase Cliente
   const { nombre, saldo } = cliente;
   return `El Cliente ${nombre} tiene un saldo de ${saldo}`;
 }
@@ -28,7 +29,7 @@ function Empresa(nombre, saldo, categoria) {
 }
 
 //Instancia de empresa
-const ccj = new Empresa("Código Con Juan", 400, "Cursos en línea");
+const ccj = new Empresa("Código Con Juan", 4000, "Cursos en línea");
 
 function formatearEmpresa(empresa) {
   //Desestructuramos Cliente

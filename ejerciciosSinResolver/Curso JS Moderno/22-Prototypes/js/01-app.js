@@ -13,7 +13,7 @@ const cliente = {
 console.log(cliente);
 console.log(typeof cliente);
 
-// 2- object constructor
+// 2- object constructor o funcion constructora
 //Si necesitas añadir o crear un objeto reutilizable que puedas utilizar en muchas instancias con muchos datos, tienes que utilizar un constructor de función o object constructor
 // En JavaScript hoy en día tenemos classes, pero previamente la programación orientada a objetos era de la siguiente forma:
 function Cliente(nombre, saldo) {

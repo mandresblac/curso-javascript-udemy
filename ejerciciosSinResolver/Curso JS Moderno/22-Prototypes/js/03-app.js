@@ -1,5 +1,6 @@
 // Vamos a crear un ejemplo...
 
+// funcion constructora
 function Cliente(nombre, saldo) {
   this.nombre = nombre;
   this.saldo = saldo;
@@ -7,7 +8,7 @@ function Cliente(nombre, saldo) {
 
 // Obtener Tipo de Cliente
 Cliente.prototype.tipoCliente = function () {
-  // Con prototypes tienes que utilizar function, function buscara en el mismo objeto mientras que un arrow function irá hacia la ventana global marcándote un undefined
+  // Con prototypes tienes que utilizar function, function buscara en el mismo objeto mientras que un arrow function irá hacia la ventana global marcándote "undefined"
   let tipo;
   if (this.saldo > 10000) {
     tipo = "Gold";
@@ -21,11 +22,10 @@ Cliente.prototype.tipoCliente = function () {
 
 // Otro Prototipo para el nombre completo
 Cliente.prototype.nombreClienteSaldo = function () {
-  return `Nombre: ${this.nombre}, Saldo ${
-    this.saldo
-  }, Tipo Cliente:  ${this.tipoCliente()} `;
+  return `Nombre: ${this.nombre}, Saldo: ${this.saldo}, Tipo Cliente: ${this.tipoCliente()}`;
 };
 
+// Otro prototype
 Cliente.prototype.retiraSaldo = function (retiro) {
   this.saldo -= retiro;
 };
@@ -40,7 +40,7 @@ console.log(pedro.tipoCliente());
 console.log(pedro.nombreClienteSaldo());
 
 // reescribir un valor
-pedro.retiraSaldo(2000);
+pedro.retiraSaldo(1000);
 
 // comprobar saldo
 console.log(pedro.nombreClienteSaldo());
