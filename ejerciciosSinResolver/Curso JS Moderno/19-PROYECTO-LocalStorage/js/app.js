@@ -12,7 +12,7 @@ function eventListener() {
 
   // Cuando el documento esta listo
   document.addEventListener("DOMContentLoaded", () => {
-    //Traemos los tweets que están en local storage con formato .JSON y los convertimos a un objeto javascript con JSON.parse() si no hay tweets se asigna como una array vació "[]"
+    //Traemos los tweets que están en local storage con formato .JSON y los convertimos a un objeto javascript con JSON.parse() si no hay tweets se asigna como una array vació "[]" para que no nos de "null"
     tweets = JSON.parse(localStorage.getItem("tweets")) || [];
     console.log(tweets);
 
@@ -30,7 +30,7 @@ function agregarTweet(e) {
   // Validación de TextArea
   if (tweet === "") {
     mostrarError("Un mensaje no puede ir vació");
-    return; //return evita que se ejecuten mas lineas de código, es decir sale de la función agregarTweet()
+    return; // return evita que se ejecuten mas lineas de código, es decir sale de la función agregarTweet()
   }
 
   //Generamos un identificador único de tweets
@@ -54,7 +54,7 @@ function agregarTweet(e) {
 
 //Mostrar mensaje de error
 function mostrarError(error) {
-  //Generamos código HML
+  //Generamos código HTML
   const mensajeError = document.createElement("p"); //Creamos un elemento "p" de HTML
   mensajeError.textContent = error; //Muestra como mensaje el parámetro error que le pasamos en la función agregarTweet()
   mensajeError.classList.add("error"); //Agregamos estilos CSS del archivo custom.css, clase .error
@@ -77,7 +77,7 @@ function crearHtml() {
   //Ejecutamos una validación en caso de que el arreglo "tweets" tenga algún contenido, ya que inicia vació y generamos el código HTML, si esta vació, no ejecuta nada
   if (tweets.length > 0) {
     //Iteramos con un forEach() sobre el arreglo tweets
-    tweets.forEach((tweet) => {
+    tweets.forEach( tweet => {
       //Agregamos botón para eliminar el tweet
       const btnEliminar = document.createElement("a");
       btnEliminar.classList.add("borrar-tweet"); //Agregamos estilos CSS del archivo custom.css, clase .borrar-tweet
@@ -117,7 +117,7 @@ function limpiarHtml() {
 
 //Elimina un tweet
 function borrarTweet(id) {
-  tweets = tweets.filter((tweet) => tweet.id !== id);
+  tweets = tweets.filter( tweet => tweet.id !== id); // Muestra todos los tweets ecepto el que tiene id diferente, es decir: tweet.id !== id
 
   crearHtml();
 }

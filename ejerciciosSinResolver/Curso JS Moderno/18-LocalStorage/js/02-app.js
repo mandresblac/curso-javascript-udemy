@@ -6,6 +6,7 @@ console.log(nombre);
 
 //OBTENER UN OBJETO DEL LOCAL STORAGE
 const productoJson = localStorage.getItem("producto");
+//console.log(productoJson);
 
 //Convertimos un string .JSON a un objeto de Javascript con JSON.parse()
 console.log(JSON.parse(productoJson));
