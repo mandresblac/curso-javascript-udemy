@@ -34,7 +34,7 @@ Seguro.prototype.cotizarSeguro = function () {
   const diferencia = new Date().getFullYear() - this.year;
 
   // Cada año que la diferencia es mayor, el costo del valor del seguro va a reducirse un 3%
-  cantidad -= (diferencia * 3 * cantidad) / 100;
+  cantidad -= ((diferencia * 3) * cantidad) / 100;
 
   /* 
     Si el seguro es básico se multiplica por un 30% (1.3) mas
@@ -50,10 +50,11 @@ Seguro.prototype.cotizarSeguro = function () {
 };
 
 // Objeto para la Interfaz de Usuario "UI"
-function UI() {}
+function UI() {};
 
-// LLena las opciones de los años, es decir genera el HTML, este es el primer prototype de la interfaz "UI"
+// Prototype 1 que llena las opciones de los años, es decir genera el HTML, este es el primer prototype de la interfaz "UI"
 UI.prototype.llenarOpciones = function () {
+  // Año maximo "max" y año minimo "min"
   const max = new Date().getFullYear(), //.getFullYear() nos trae el año actual 2023
     min = max - 20;
 
@@ -62,7 +63,7 @@ UI.prototype.llenarOpciones = function () {
   //Con un ciclo for iteramos sobe el año maximo "max" hasta el año minimo "min" creando las diferentes opciones del elemento "select"
   for (let i = max; i >= min; i--) {
     let option = document.createElement("option");
-    option.value = i;
+    option.value = i; // "i" es el año en el cual estamos iterando en el ciclo for 
     option.textContent = i;
     selecYear.appendChild(option);
   }
@@ -81,9 +82,9 @@ UI.prototype.mostrarMensaje = function (mensaje, tipo) {
   div.classList.add("mensaje", "mt-10");
   div.textContent = mensaje;
 
-  // Insertamos el div en el HTML
+  // Insertamos el div en el documento HTML
   const formulario = document.querySelector("#cotizar-seguro");
-  formulario.insertBefore(div, document.querySelector("#resultado"));
+  formulario.insertBefore(div, document.querySelector("#resultado")); // .insertBefore() tiene 2 parametros, Parametro 1: Elemento a insertar, Parametro 2: El nodo donde se va a insertar el elemento
 
   setTimeout(() => {
     div.remove();
@@ -131,8 +132,8 @@ UI.prototype.mostrarResultado = (total, seguro) => {
   spinner.style.display = "block";
 
   setTimeout(() => {
-    spinner.style.display = "none"; // Se borra el Spinner
-    resultadoDiv.appendChild(div); //Se muestra el div después de que el spinner halla sido borrado
+    spinner.style.display = "none"; // Se oculta el Spinner
+    resultadoDiv.appendChild(div); // Se muestra el div después de que el spinner se halla ocultado
   }, 3000);
 };
 
@@ -140,11 +141,12 @@ UI.prototype.mostrarResultado = (total, seguro) => {
 const ui = new UI();
 
 document.addEventListener("DOMContentLoaded", () => {
-  ui.llenarOpciones(); //Llenamos el elemento "select" con los años
+  ui.llenarOpciones(); // Llenamos el elemento "select" con los años
 });
 
 eventListeners();
 function eventListeners() {
+  // Seleccionamos ek formulario del HTML
   const formulario = document.querySelector("#cotizar-seguro");
   formulario.addEventListener("submit", cotizarSeguro);
 }
@@ -168,7 +170,7 @@ function cotizarSeguro(e) {
   }
   ui.mostrarMensaje("Cotizando...", "exito");
 
-  // Ocultar las cotizaciones previas
+  // Oculta o elimina las cotizaciones previas
   const resultados = document.querySelector("#resultado div");
   if (resultados != null) {
     resultados.remove();

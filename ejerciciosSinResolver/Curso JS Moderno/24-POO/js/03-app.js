@@ -30,7 +30,7 @@ class Empresa extends Cliente {
 
   // Reescribir un método, para reescribir un método de la clase padre en la clase hija basta con nombrarlo de la misma forma en la clase hija
   static bienvenida(mensaje) {
-    return `Bienvenido al cajero para empresas`;
+    return `Bienvenido al cajero de empresas`;
   }
 }
 
@@ -46,5 +46,5 @@ console.log(empresa);
 console.log(empresa.imprimirSaldo());
 
 // Acceder al statico sin instanciar de ambos
-console.log(Empresa.bienvenida());
 console.log(Cliente.bienvenida());
+console.log(Empresa.bienvenida());

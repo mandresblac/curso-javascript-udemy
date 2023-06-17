@@ -19,9 +19,10 @@ class Cliente {
   }
 }
 
-const pedro = new Cliente("Pedro", 200);
+const juan = new Cliente("Juan", 200);
 
-console.log(pedro.nombreCliente());
+console.log(juan);
+console.log(juan.nombreCliente());
 
 // console.log(pedro._nombre);
 
@@ -42,7 +43,7 @@ class Cliente2 {
 }
 
 const manuel = new Cliente2();
-manuel.setNombre("manuel");
+manuel.setNombre("Manuel");
 console.log(manuel.getNombre());
 
 //console.log(manuel.#nombre); // Da un error

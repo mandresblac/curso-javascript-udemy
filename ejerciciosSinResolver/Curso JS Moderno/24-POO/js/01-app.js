@@ -17,11 +17,25 @@ class Cliente1 {
     this.nombre = nombre;
     this.saldo = saldo;
   }
+
+  mostrarInformacion() {
+    return `Cliente: ${this.nombre}, tu saldo es de ${this.saldo}.`;
+  }
+
+  // Propiedades estaticas
+  
+  static bienvenida() {
+    return `Bienvenido al cajero`;
+  }
 }
 
-//Si recuerdas previamente instanciabamos nuestro objecto con... para pasar esos valores las classes introdujeron lo que se conoce como constructores... en algunos lenguajes el constructor es el mismo nombre de la clase pero en javascript es constructaor
+// Si recuerdas previamente instanciabamos nuestro objecto con... para pasar esos valores las classes introdujeron lo que se conoce como constructores... en algunos lenguajes el constructor es el mismo nombre de la clase pero en javascript es constructaor
 const juan = new Cliente1("Juan", 400);
 console.log(juan);
+console.log(juan.mostrarInformacion());
+
+// Los metotos estaticos (static) no requieren de una instancia para mandarse llamar, se mandan llamar directamente desde la clase
+console.log(Cliente1.bienvenida());
 
 // Existe una segunda forma de crear classes, se le conoce como class Expression
 // FORMA 2 - Class expression
@@ -31,7 +45,12 @@ const Cliente2 = class {
     this.nombre = nombre;
     this.saldo = saldo;
   }
+
+  mostrarInformacion() {
+    return `Cliente: ${this.nombre}, tu saldo es de ${this.saldo}.`;
+  }
 };
 
-const juan2 = new Cliente2("Juan", 400);
+const juan2 = new Cliente2("Juan", 500);
 console.log(juan2);
+console.log(juan2.mostrarInformacion());
