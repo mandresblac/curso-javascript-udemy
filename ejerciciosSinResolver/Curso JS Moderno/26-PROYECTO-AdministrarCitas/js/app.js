@@ -13,7 +13,7 @@ const contenedorCitas = document.querySelector("#citas");
 //Variable de el modo edición
 let editando;
 
-//Objeta principal con la información de la cita
+//Objeto principal con la información de la cita
 //Para que esto funcione las claves de las propiedades del objeto "citaObj" deben tener el mismo nombre que tiene el atributo "name" del elemento "input" del documento HTML
 const citaObj = {
   mascota: "",
@@ -88,7 +88,7 @@ class UI {
     }, 4000);
   }
 
-  //Podemos aplicar desestructuración desde los paréntesis de los parámetros de la la función imprimirCitas()
+  //Podemos aplicar desestructuración desde los paréntesis de los parámetros de la función imprimirCitas()
   imprimirCitas({ citas }) {
     //Primero limpiamos el HTML
     this.limpiarHtml();
@@ -172,7 +172,7 @@ class UI {
   }
 }
 
-//Instanciamos 2 objetos de las clases Citas y UI
+//Instanciamos 2 objetos de las clases Citas y UI de forma global
 const administrarCitas = new Citas();
 const ui = new UI();
 
@@ -262,7 +262,7 @@ function eliminarCita(id) {
 
 //Carga los datos y el modo edición
 function cargarEdicion(cita) {
-  //Extraemos información del parámetro cita
+  //Extraemos información del parámetro cita con destructuracion
   const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
   //Llenamos los inputs
