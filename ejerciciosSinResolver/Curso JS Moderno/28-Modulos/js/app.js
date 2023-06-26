@@ -1,3 +1,6 @@
+// import nuevaFuncion, { Cliente, ahorro, mostrarInformacion, Cliente } from "./cliente.js";
+import { Empresa } from "./empresa.js";
+
 // 4
 import nuevaFuncion, {
   nombreCliente,
@@ -5,8 +8,6 @@ import nuevaFuncion, {
   mostrarInformacion,
   Cliente,
 } from "./cliente.js";
-import { Empresa } from "./empresa.js";
-//import { Cliente } from "./cliente.js";
 
 let cliente = new Cliente(nombreCliente, ahorro);
 console.log(cliente.mostrarInformacion());
