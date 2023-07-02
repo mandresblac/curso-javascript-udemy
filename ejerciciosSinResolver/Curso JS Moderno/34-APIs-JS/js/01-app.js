@@ -4,7 +4,7 @@ const notificarBtn = document.querySelector("#notificar");
 
 notificarBtn.addEventListener("click", () => {
   Notification.requestPermission().then((resultado) => {
-    console.log("El resultado es ", resultado);
+    console.log("El resultado es", resultado);
   });
 });
 
@@ -27,7 +27,7 @@ verNotificacionBtn.addEventListener("click", () => {
 
     // Ir al sitio web de juan
     notificacion.onclick = function () {
-      window.open("https://www.codigoconjuan.com");
+      window.open("https://www.codigoconjuan.com"); // Para abrir la URL
     };
   }
 });

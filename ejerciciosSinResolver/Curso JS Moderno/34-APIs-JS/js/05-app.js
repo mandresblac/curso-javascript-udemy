@@ -1,6 +1,6 @@
 // Detectar si nuestra página se esta ejecutando en primer o segundo plano con la API visibilityState y el avento "visibilitychange".
 
-document.addEventListener("visibilitychange", (e) => {
+document.addEventListener("visibilitychange", () => {
   //console.log(document.visibilityState);
 
   if (document.visibilityState === "visible") {
