@@ -2,7 +2,7 @@ const resultado = document.querySelector("#resultado");
 const formulario = document.querySelector("#formulario");
 const paginacionDiv = document.querySelector("#paginacion");
 
-const registrosPorPagina = 40; //Muestra 40 imágenes por
+const registrosPorPagina = 40; // Muestra 40 imágenes por pagina
 let totalPaginas;
 let iterador;
 let paginaActual = 1;
@@ -129,7 +129,7 @@ function imprimirPaginador() {
     const { value, done } = iterador.next();
     if (done) return;
 
-    //Caso contrario, genera un botón por cada elemento en ele generador
+    // Caso contrario, genera un botón por cada elemento en el generador
     const boton = document.createElement("a");
     boton.href = "#";
     boton.dataset.pagina = value;
