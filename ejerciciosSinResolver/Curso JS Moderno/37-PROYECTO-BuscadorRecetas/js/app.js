@@ -1,20 +1,18 @@
 function iniciarApp() {
-
   const resultado = document.querySelector("#resultado");
   const selectCategorias = document.querySelector("#categorias");
 
-  if(selectCategorias) {
+  if (selectCategorias) {
     selectCategorias.addEventListener("change", seleccionarCategoria); // El evento "change" se utiliza con un elemento "select" de HTML
 
     // Arranca la aplicación
-  obtenerCategorias();
+    obtenerCategorias();
   }
 
   const favoritosDiv = document.querySelector(".favoritos");
   if (favoritosDiv) {
     obtenerFavoritos();
   }
-
 
   const modal = new bootstrap.Modal("#modal", {});
 
@@ -74,7 +72,7 @@ function iniciarApp() {
       recetaImagen.src = strMealThumb ?? receta.img;
 
       // Creamos cuerpo de la receta
-      recetaCardBody = document.createElement("div");
+      const recetaCardBody = document.createElement("div");
       recetaCardBody.classList.add("card-body");
 
       // Creamos un Heading
@@ -147,41 +145,42 @@ function iniciarApp() {
         // Agregamos el elemento "li" al "ul"
         listGroup.appendChild(ingredienteLi);
       }
-
     }
 
     modalBody.appendChild(listGroup);
 
     // Traemos del documento HTML el elemento con clase ".modal-footer"
-    const modalFooter = document.querySelector(".modal-footer")
+    const modalFooter = document.querySelector(".modal-footer");
 
     // Limpiamos el modalFooter para que aparescan solo dos botones
-    limpiarHtml(modalFooter)
+    limpiarHtml(modalFooter);
 
     // Botones de favorito y cerrar
     const btnFavorito = document.createElement("button");
     btnFavorito.classList.add("btn", "btn-danger", "col");
-    btnFavorito.textContent = existeStorage(idMeal) ? "Eliminar Favorito": "Guardar favorito";
+    btnFavorito.textContent = existeStorage(idMeal)
+      ? "Eliminar Favorito"
+      : "Guardar favorito";
 
     // Almacenar y eliminar elementos del localStorage
     btnFavorito.onclick = function () {
       //Eliminando
-      if(existeStorage(idMeal)) {
+      if (existeStorage(idMeal)) {
         eliminarFavorito(idMeal);
         btnFavorito.textContent = "Guardar favorito";
         mostrarToast("Eliminado correctamente");
         return;
-      };
+      }
 
       //Agregando
       agregarFavorito({
         id: idMeal,
         titulo: strMeal,
-        img: strMealThumb
+        img: strMealThumb,
       });
       btnFavorito.textContent = "Eliminar favorito";
       mostrarToast("Agregado correctamente");
-    }
+    };
 
     const btnCerrarModal = document.createElement("button");
     btnCerrarModal.classList.add("btn", "btn-secondary", "col");
@@ -189,8 +188,8 @@ function iniciarApp() {
 
     //Para darle la funcionalidad al boton de cerrar
     btnCerrarModal.onclick = () => {
-      modal.hide(); //Para cerrar el modal
-    }
+      modal.hide(); // .hide() para cerrar el modal
+    };
 
     // Agregamos botones al footer
     modalFooter.appendChild(btnFavorito);
@@ -202,20 +201,20 @@ function iniciarApp() {
 
   function agregarFavorito(receta) {
     //Si no existe le agrega un arreglo ?? []
-    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];// JSON.parse() convierte formato JSON a objeto de Javascript
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? []; // JSON.parse() convierte formato JSON a objeto de Javascript
 
     localStorage.setItem("favoritos", JSON.stringify([...favoritos, receta]));
   }
 
   function eliminarFavorito(id) {
     const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
-    const nuevosaFavoritos = favoritos.filter(favorito => favorito.id !== id);
-    localStorage.setItem("favoritos", JSON.stringify(nuevosaFavoritos));
+    const nuevosFavoritos = favoritos.filter((favorito) => favorito.id !== id);
+    localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
   }
 
   function existeStorage(id) {
     const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
-    return favoritos.some(favorito => favorito.id === id);
+    return favoritos.some((favorito) => favorito.id === id);
   }
 
   function mostrarToast(mensaje) {
