@@ -92,7 +92,7 @@ function mostrarPlatillos(platillos) {
     // Precio
     const precio = document.createElement("div");
     precio.classList.add("col-md-3", "fw-bold");
-    precio.textContent = `$ ${platillo.precio}`;
+    precio.textContent = `$${platillo.precio}`;
 
     // Categoria
     const categoria = document.createElement("div");
@@ -188,7 +188,7 @@ function actualizarResumen() {
   horaSpan.textContent = cliente.hora;
   horaSpan.classList.add("fw-normal");
 
-  // Agregamos los elementos padre
+  // Agregamos a los elementos padre
   mesa.appendChild(mesaSpan);
   hora.appendChild(horaSpan);
 
@@ -261,7 +261,7 @@ function actualizarResumen() {
     precioElemento.appendChild(precioValor);
     subTotalElemento.appendChild(subTotalValor);
 
-    // Agregar elemento al "li"
+    // Agregar elementos al "li"
     lista.appendChild(nombreElemento);
     lista.appendChild(cantidadElemento);
     lista.appendChild(precioElemento);
