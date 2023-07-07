@@ -1,25 +1,3 @@
 {
-  "clientes": [
-    {
-      "nombre": "Juan",
-      "email": "juan@gmial.com",
-      "telefono": "8494020329",
-      "empresa": "Lotus",
-      "id": 1
-    },
-    {
-      "nombre": "Adriana",
-      "email": "adri@hotmail.com",
-      "telefono": "4234234249",
-      "empresa": "Coral",
-      "id": 2
-    },
-    {
-      "nombre": "Carlos",
-      "email": "carlota@gmail.com",
-      "telefono": "90392784514",
-      "empresa": "Peladas",
-      "id": 3
-    }
-  ]
+  "clientes": []
 }
