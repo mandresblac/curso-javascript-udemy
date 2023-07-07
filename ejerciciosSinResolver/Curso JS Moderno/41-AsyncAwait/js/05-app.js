@@ -4,12 +4,12 @@ const url = "https://picsum.photos/list";
 document.addEventListener("DOMContentLoaded", obtenerDatos);
 
 /* PROMISE */
-function obtenerDatos() {
+/* function obtenerDatos() {
   fetch(url)
     .then((respuesta) => respuesta.json())
     .then((resultado) => console.log(resultado))
     .catch((error) => console.log(error));
-}
+} */
 
 /* ASYNC - AWAIT */
 /* async function obtenerDatos() {
@@ -19,7 +19,7 @@ function obtenerDatos() {
 } */
 
 /* ASYNC-AWAIT CON TRY-CATCH */
-/* async function obtenerDatos() {
+async function obtenerDatos() {
   try {
     const respuesta = await fetch(url);
     const resultado = await respuesta.json();
@@ -27,4 +27,4 @@ function obtenerDatos() {
   } catch (error) {
     console.log(error);
   }
-} */
+}
