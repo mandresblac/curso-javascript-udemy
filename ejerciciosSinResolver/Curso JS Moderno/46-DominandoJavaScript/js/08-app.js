@@ -1,24 +1,23 @@
 // self se refiere a la ventana global, es igual a window
 
 self.onload = () => {
-    console.log('Ventana Lista');
-}
+  console.log("Ventana Lista");
+};
 
 window.onload = () => {
-    console.log('ventana lista');
-}
-
+  console.log("ventana lista");
+};
 
 // Ahora muchas personas utilizan self de la siguiente forma...
 
 const producto = {
-    nombre: "Monitor 20 pulgadas",
-    precio: 30,
-    disponible: true,
-    mostrarInfo: function() {
-        const self = this;
-        return `El Producto: ${self.nombre}  tiene un precio de ${self.precio}`;
-    }
-}
+  nombre: "Monitor 20 pulgadas",
+  precio: 30,
+  disponible: true,
+  mostrarInfo: function () {
+    const self = this;
+    return `El Producto: ${self.nombre}  tiene un precio de ${self.precio}`;
+  },
+};
 
 console.log(producto.mostrarInfo());

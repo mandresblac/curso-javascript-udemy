@@ -3,13 +3,13 @@
 // Existe otra forma de hacer binding y es con EXPLICITI BINDING...
 
 function persona(el1, el2) {
-    console.log(`Mi Nombre es ${this.name} y escucho ${el1} & ${el2} `);
+  console.log(`Mi Nombre es ${this.name} y escucho ${el1} y ${el2} `);
 }
 const informacion = {
-    name: 'Juan',
-    job: 'Developer'
-}
-const musicaFavorita = ['Heavy Metal', 'Rock'];
+  name: "Juan",
+  job: "Developer",
+};
+const musicaFavorita = ["Heavy Metal", "Rock"];
 
 // UTILIZAREMOS un método llamado .call, .call existe en todas las funciones de Javascript, y puedes pasarle digamos un objeto o arreglo dentro de la función... MUY IMPORTANTE esque nota como el segundo argumento es un array, en .call tienes que pasar cada elemento del array de forma individial, con su posición...
 persona.call(informacion, musicaFavorita[0], musicaFavorita[1]);
