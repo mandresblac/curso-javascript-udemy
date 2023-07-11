@@ -9,7 +9,7 @@
   "author": "Manuel Blanco",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.9.0"
+    "cypress": "^12.17.1"
   },
   "dependencies": {
     "aggregate-error": "^3.1.0",
