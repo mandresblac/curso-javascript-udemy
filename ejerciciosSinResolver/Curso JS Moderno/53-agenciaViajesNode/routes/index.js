@@ -1,19 +1,19 @@
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 
 //Metodo get de HTTP
 // req = request o "peticion, solicitud", res = response o "respuesta"
 router.get("/", (req, res) => {
-    res.send("Inicio");
+  res.render("../views/inicio.pug");
 });
 
 router.get("/nosotros", (req, res) => {
-    res.send("Nosotros");
-});
+  const viajes = "Cambiando el texto";
 
-router.get("/contacto", (req, res) => {
-    res.send("Contacto");
+  res.render("../views/nosotros.pug", {
+    viajes,
+  });
 });
 
 export default router;
