@@ -16,6 +16,7 @@ app.set("View engine", "pug"); // "View engine" es soportado por express
 app.use((req, res, next) => {
   const year = new Date();
   res.locals.actualYear = year.getFullYear();
+  res.locals.nombreSitio = "Agencia de viajes";
   next();
 });
 
