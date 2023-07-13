@@ -1,31 +1,21 @@
 import express from "express";
+import {
+  paginaInicio,
+  paginaNosotros,
+  paginaViajes,
+  paginaTestimoniales,
+} from "../controllers/paginasController.js";
 
 const router = express.Router();
 
 //Metodo get de HTTP
 // req = request o "peticion, solicitud", res = response o "respuesta"
-router.get("/", (req, res) => {
-  res.render("../views/inicio.pug", {
-    pagina: "Inicio",
-  });
-});
+router.get("/", paginaInicio);
 
-router.get("/nosotros", (req, res) => {
-  res.render("../views/nosotros.pug", {
-    pagina: "Nosotros",
-  });
-});
+router.get("/nosotros", paginaNosotros);
 
-router.get("/viajes", (req, res) => {
-  res.render("../views/viajes.pug", {
-    pagina: "Viajes",
-  });
-});
+router.get("/viajes", paginaViajes);
 
-router.get("/testimoniales", (req, res) => {
-  res.render("../views/testimoniales.pug", {
-    pagina: "Testimoniales",
-  });
-});
+router.get("/testimoniales", paginaTestimoniales);
 
 export default router;
