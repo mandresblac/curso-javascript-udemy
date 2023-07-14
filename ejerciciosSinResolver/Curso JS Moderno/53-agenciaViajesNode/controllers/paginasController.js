@@ -2,6 +2,7 @@ import { Viaje } from "../models/Viaje.js";
 import { Testimonial } from "../models/Testimonial.js";
 
 const paginaInicio = async (req, res) => {
+  // Consultar 3 viajes del modelo viaje
   const promises = [];
 
   promises.push(
