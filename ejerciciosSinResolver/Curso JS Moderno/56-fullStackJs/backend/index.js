@@ -1,10 +1,11 @@
-// Comando para correr aplicación desde la terminal: npm run dev
+// Comando para correr aplicación en la terminal estando posicionado en la carpeta backend: npm run dev
 import express from "express";
 import dotenv from "dotenv";
 import conectarDB from "./config/db.js";
 import veterinarioRoutes from "./routes/veterinarioRoutes.js";
 
 const app = express();
+app.use(express.json());
 dotenv.config();
 
 conectarDB();
